@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { ArrowRight, CalendarDays, MapPin, Play, Users } from "lucide-react";
 import { BrandMark } from "./BrandMark";
+import { useHeroPointerMotion } from "./useLandingMotion";
 
 const eventFacts = [
   { icon: CalendarDays, label: "Evento presencial" },
@@ -8,8 +10,11 @@ const eventFacts = [
 ];
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  useHeroPointerMotion(heroRef);
+
   return (
-    <section id="top" className="cinematic-hero" aria-labelledby="hero-title">
+    <section ref={heroRef} id="top" className="cinematic-hero" aria-labelledby="hero-title">
       <div className="hero-scenery" aria-hidden="true">
         <img
           src="/uploads/cuiaba-atmosphere.jpg"

@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import { BrandMark } from "./BrandMark";
 import {
   BookOpen,
@@ -28,32 +28,16 @@ function Section({
   className?: string;
   children: ReactNode;
 }) {
-  const sectionRef = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section || !("IntersectionObserver" in window)) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          section.classList.add("section-entered");
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.08 },
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
   return (
-    <section ref={sectionRef} id={id} className={`landing-section ${className}`}>
+    <section data-motion-section id={id} className={`landing-section ${className}`}>
       {children}
     </section>
   );
 }
 
-function Container({ className = "", children }: { className?: string; children: ReactNode }) {
+function Container({ className = "", children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={`section-container mx-auto w-full max-w-7xl ${className}`.trim()}>
+    <div {...props} className={`section-container mx-auto w-full max-w-7xl ${className}`.trim()}>
       {children}
     </div>
   );
@@ -61,7 +45,10 @@ function Container({ className = "", children }: { className?: string; children:
 
 function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="section-eyebrow mb-4 flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.42em] text-primary">
+    <p
+      data-motion="eyebrow"
+      className="section-eyebrow mb-4 flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.42em] text-primary"
+    >
       <span aria-hidden className="h-px w-8 shrink-0 bg-primary/70" />
       <span>{children}</span>
     </p>
@@ -75,15 +62,24 @@ export function VslSection() {
       className="bg-[radial-gradient(60%_50%_at_50%_0%,rgba(16,185,129,0.07),transparent_70%)]"
     >
       <Container>
-        <p className="mx-auto max-w-3xl text-center text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+        <p
+          data-motion="eyebrow"
+          className="mx-auto max-w-3xl text-center text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary"
+        >
           A experiência começa aqui
         </p>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl uppercase leading-tight tracking-wide text-white sm:text-5xl">
+        <h2
+          data-motion="heading"
+          className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl uppercase leading-tight tracking-wide text-white sm:text-5xl"
+        >
           Assista ao vídeo e descubra por que o <span className="text-gold-gradient">Protagon</span>{" "}
           vai transformar a sua vida
         </h2>
 
-        <div className="video-frame relative mx-auto mt-10 aspect-video w-full max-w-5xl overflow-hidden">
+        <div
+          data-motion="media"
+          className="video-frame relative mx-auto mt-10 aspect-video w-full max-w-5xl overflow-hidden"
+        >
           <iframe
             className="absolute inset-0 h-full w-full border-0"
             src="https://www.youtube.com/embed/s40NIz9b6jw?si=X2y9_X3tD-yF9Sxb"
@@ -111,17 +107,23 @@ export function EventExperience() {
       <Container className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <div>
           <Eyebrow>O evento</Eyebrow>
-          <h2 className="font-display text-3xl uppercase leading-[1.05] tracking-wide text-white sm:text-5xl">
+          <h2
+            data-motion="heading"
+            className="font-display text-3xl uppercase leading-[1.05] tracking-wide text-white sm:text-5xl"
+          >
             Uma <span className="text-gold-gradient">experiência</span> presencial e transformadora
           </h2>
-          <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p
+            data-motion="copy"
+            className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
+          >
             Três dias de imersão intensa com Wendell Carvalho e Karina Peloi para você destravar seu
             potencial, desenvolver sua mentalidade e construir um novo nível de vida.
           </p>
 
-          <ul className="mt-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-2">
+          <ul data-motion-stagger className="mt-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-2">
             {experienceHighlights.map((item) => (
-              <li key={item.label} className="experience-highlight">
+              <li data-motion-item key={item.label} className="experience-highlight">
                 <span className="text-primary">
                   <item.icon className="h-4 w-4" />
                 </span>
@@ -131,7 +133,7 @@ export function EventExperience() {
           </ul>
         </div>
 
-        <figure className="event-art">
+        <figure data-motion="image" className="event-art">
           <img
             src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_26_17.png"
             alt="Arte do Novo Protagon Cuiabá com Wendell Carvalho, Karina Peloi e cenas da experiência"
@@ -165,7 +167,7 @@ export function AboutWendell() {
       className="bg-[radial-gradient(50%_60%_at_10%_50%,rgba(6,78,59,0.18),transparent_70%)]"
     >
       <Container className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-        <figure className="authority-portrait">
+        <figure data-motion="image-up" className="authority-portrait">
           <img
             src="/uploads/Design_sem_nome.png"
             alt="Retrato de Wendell Carvalho"
@@ -183,16 +185,25 @@ export function AboutWendell() {
 
         <div>
           <Eyebrow>Sobre</Eyebrow>
-          <h2 className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
+          <h2
+            data-motion="heading"
+            className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl"
+          >
             Quem é o <span className="text-gold-gradient">Wendell</span>?
           </h2>
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p
+            data-motion="copy"
+            className="mt-6 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
+          >
             [Espaço reservado para o texto biográfico do Wendell Carvalho.]
           </p>
 
-          <div className="authority-stats mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div
+            data-motion-stagger
+            className="authority-stats mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3"
+          >
             {stats.map(([number, label]) => (
-              <div key={number + label} className="authority-stat">
+              <div data-motion-item key={number + label} className="authority-stat">
                 <p className="font-display text-3xl leading-none text-gold-gradient sm:text-4xl">
                   {number}
                 </p>
@@ -219,20 +230,29 @@ export function AudienceSection() {
   return (
     <Section id="para-quem">
       <Container className="max-w-3xl text-center">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+        <p
+          data-motion="eyebrow"
+          className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary"
+        >
           Para quem é?
         </p>
-        <h2 className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
+        <h2
+          data-motion="heading"
+          className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl"
+        >
           Para quem é o <span className="text-gold-gradient">Protagon</span>?
         </h2>
-        <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
+        <p data-motion="copy" className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
           Se você se identifica com pelo menos um dos pontos abaixo, este evento é para você.
         </p>
       </Container>
 
-      <Container className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <Container
+        data-motion-stagger
+        className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+      >
         {audience.map((item, i) => (
-          <div key={item} className="audience-item">
+          <div data-motion-item key={item} className="audience-item">
             <p aria-hidden="true" className="audience-number">
               {String(i + 1).padStart(2, "0")}
             </p>
@@ -255,7 +275,7 @@ export function LocationSection() {
       className="bg-[radial-gradient(50%_70%_at_90%_0%,rgba(212,175,55,0.08),transparent_70%)]"
     >
       <Container className="max-w-7xl">
-        <div className="location-panel">
+        <div data-motion="panel" className="location-panel">
           <img
             className="location-scenery"
             src="/uploads/cuiaba-atmosphere.jpg"
@@ -264,27 +284,44 @@ export function LocationSection() {
             width="1672"
             height="941"
             loading="lazy"
+            data-motion-parallax
+            data-motion-parallax-range="20"
           />
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_0%,rgba(16,185,129,0.12),transparent_65%)]"
           />
           <Eyebrow>Local e data</Eyebrow>
-          <h2 className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
+          <h2
+            data-motion="heading"
+            className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl"
+          >
             Cuiabá <span className="text-gold-gradient">·</span> MT
           </h2>
-          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+          <p
+            data-motion="copy"
+            className="mt-4 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground"
+          >
             24, 25 e 26 de outubro de 2025
           </p>
 
-          <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
-            <div className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+          <div
+            data-motion-stagger
+            className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2"
+          >
+            <div
+              data-motion-item
+              className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4"
+            >
               <MapPin className="h-5 w-5 shrink-0 text-primary" />
               <span className="text-sm font-medium text-foreground/90">
                 Local a ser confirmado em breve
               </span>
             </div>
-            <div className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+            <div
+              data-motion-item
+              className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4"
+            >
               <CalendarDays className="h-5 w-5 shrink-0 text-primary" />
               <span className="text-sm font-medium text-foreground/90">
                 Evento presencial · vagas limitadas
@@ -293,6 +330,7 @@ export function LocationSection() {
           </div>
 
           <Button
+            data-motion="action"
             data-landing-button
             asChild
             variant="outline"
@@ -337,17 +375,27 @@ export function AccessTypes() {
   return (
     <Section id="tipos-de-acesso">
       <Container className="max-w-3xl text-center">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+        <p
+          data-motion="eyebrow"
+          className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary"
+        >
           Tipos de acesso
         </p>
-        <h2 className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
+        <h2
+          data-motion="heading"
+          className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl"
+        >
           Escolha o seu <span className="text-gold-gradient">nível</span> de experiência
         </h2>
       </Container>
 
-      <Container className="mt-12 grid grid-cols-1 items-stretch gap-5 lg:grid-cols-3">
+      <Container
+        data-motion-stagger
+        className="mt-12 grid grid-cols-1 items-stretch gap-5 lg:grid-cols-3"
+      >
         {tiers.map((t) => (
           <div
+            data-motion-item
             key={t.name}
             className={`access-card ${
               t.featured ? "access-card-featured" : "access-card-standard"
@@ -398,17 +446,26 @@ export function GuaranteeSection() {
       <Container className="grid items-center gap-14 lg:grid-cols-[1.4fr_0.8fr]">
         <div>
           <Eyebrow>Sem risco</Eyebrow>
-          <h2 className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
+          <h2
+            data-motion="heading"
+            className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl"
+          >
             Garantia <span className="text-gold-gradient">épica</span>
           </h2>
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p
+            data-motion="copy"
+            className="mt-6 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
+          >
             Se até o final do 2º dia do evento você sentir que a experiência não foi o que esperava,
             poderá solicitar o reembolso presencialmente a um dos membros da equipe, conforme as
             regras da garantia.
           </p>
         </div>
 
-        <div className="guarantee-seal relative mx-auto aspect-square w-52 sm:w-64">
+        <div
+          data-motion="seal"
+          className="guarantee-seal relative mx-auto aspect-square w-52 sm:w-64"
+        >
           <div aria-hidden className="absolute inset-0 rounded-full border border-primary/30" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex h-[78%] w-[78%] flex-col items-center justify-center rounded-full border border-primary/25 bg-gradient-to-b from-emerald-950/40 to-card text-center shadow-[inset_0_0_40px_rgba(0,0,0,0.5)]">
@@ -445,17 +502,23 @@ export function FaqSection() {
     <Section id="faq">
       <Container className="max-w-4xl">
         <div className="text-center">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+          <p
+            data-motion="eyebrow"
+            className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary"
+          >
             Dúvidas
           </p>
-          <h2 className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
+          <h2
+            data-motion="heading"
+            className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl"
+          >
             Perguntas <span className="text-gold-gradient">frequentes</span>
           </h2>
         </div>
 
-        <Accordion type="single" collapsible className="mt-12 w-full">
+        <Accordion data-motion-stagger type="single" collapsible className="mt-12 w-full">
           {faq.map(([q, a], index) => (
-            <AccordionItem key={q} value={`item-${index}`} className="faq-item">
+            <AccordionItem data-motion-item key={q} value={`item-${index}`} className="faq-item">
               <AccordionTrigger className="px-1 font-display text-left text-base uppercase tracking-[0.08em] text-white transition-colors sm:px-3 sm:text-lg [&>svg]:text-primary">
                 <span>{q}</span>
               </AccordionTrigger>
@@ -477,18 +540,30 @@ export function JourneySection() {
       className="bg-[radial-gradient(60%_70%_at_50%_100%,rgba(16,185,129,0.08),transparent_70%)]"
     >
       <Container className="max-w-4xl text-center">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+        <p
+          data-motion="eyebrow"
+          className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary"
+        >
           Continue sua jornada
         </p>
-        <h2 className="mt-4 font-display text-3xl uppercase leading-tight tracking-wide text-white sm:text-5xl">
+        <h2
+          data-motion="heading"
+          className="mt-4 font-display text-3xl uppercase leading-tight tracking-wide text-white sm:text-5xl"
+        >
           Quer ver outros <span className="text-gold-gradient">Protagons</span> ou explorar mais
           cursos do Wendell?
         </h2>
-        <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+        <p
+          data-motion="copy"
+          className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
+        >
           Se Cuiabá não está no seu mapa neste momento, confira a agenda completa de eventos em
           outras cidades ou explore outros cursos e treinamentos.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div
+          data-motion="action"
+          className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+        >
           <Button
             data-landing-button
             asChild
@@ -515,7 +590,7 @@ export function FinalCta() {
   return (
     <Section id="cta-final" className="pb-24 sm:pb-32">
       <Container>
-        <div className="final-panel">
+        <div data-motion="panel" className="final-panel">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_80%_at_50%_0%,rgba(212,175,55,0.18),transparent_65%)]"
@@ -525,19 +600,28 @@ export function FinalCta() {
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_110%,rgba(16,185,129,0.16),transparent_65%)]"
           />
 
-          <p className="relative text-[11px] font-extrabold uppercase tracking-[0.5em] text-muted-foreground">
+          <p
+            data-motion="eyebrow"
+            className="relative text-[11px] font-extrabold uppercase tracking-[0.5em] text-muted-foreground"
+          >
             Sua vaga está esperando
           </p>
-          <h2 className="relative mt-4 font-display text-4xl uppercase leading-[0.95] tracking-[0.05em] text-white sm:text-6xl lg:text-7xl">
+          <h2
+            data-motion="heading"
+            className="relative mt-4 font-display text-4xl uppercase leading-[0.95] tracking-[0.05em] text-white sm:text-6xl lg:text-7xl"
+          >
             Novo <span className="text-gold-gradient">Protagon</span>
             <br />
             Cuiabá
           </h2>
-          <p className="relative mt-5 text-sm font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+          <p
+            data-motion="copy"
+            className="relative mt-5 text-sm font-semibold uppercase tracking-[0.28em] text-muted-foreground"
+          >
             24, 25 e 26 de outubro de 2025 · Cuiabá - MT
           </p>
 
-          <div className="relative mx-auto mt-10 max-w-md">
+          <div data-motion="action" className="relative mx-auto mt-10 max-w-md">
             <Button
               data-landing-button
               asChild
@@ -558,10 +642,10 @@ export function FinalCta() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black/20 py-14 sm:py-20">
+    <footer data-motion-section className="border-t border-white/10 bg-black/20 py-14 sm:py-20">
       <Container>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="sm:col-span-2 lg:col-span-2">
+        <div data-motion-stagger className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div data-motion-item className="sm:col-span-2 lg:col-span-2">
             <a href="#top" className="inline-block">
               <BrandMark className="footer-brand" />
             </a>
@@ -571,7 +655,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
+          <div data-motion-item>
             <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-white">
               Navegação
             </p>
@@ -604,7 +688,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div data-motion-item>
             <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-white">
               Links
             </p>

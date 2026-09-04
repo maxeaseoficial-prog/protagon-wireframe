@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/landing/Hero";
 import { Header } from "@/components/landing/Header";
+import { useLandingMotion } from "@/components/landing/useLandingMotion";
 import {
   VslSection,
   EventExperience,
@@ -34,8 +36,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const landingRef = useRef<HTMLDivElement>(null);
+  useLandingMotion(landingRef);
+
   return (
-    <div className="landing-page min-h-screen w-full bg-background text-foreground">
+    <div
+      ref={landingRef}
+      className="landing-page min-h-screen w-full bg-background text-foreground"
+    >
       <Header />
       <main id="main-content" tabIndex={-1}>
         <Hero />

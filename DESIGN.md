@@ -164,7 +164,15 @@ A profundidade vem sobretudo de cenário, máscaras, luz radial e pequenas difer
 - **Menu móvel**: `0 16px 30px rgb(0 0 0 / 25%)`, abaixo do painel aberto.
 - **Notas laterais do hero**: `text-shadow: 0 2px 8px rgb(0 0 0 / 85%)`, para leitura sobre o cenário.
 
-O retrato entra em 800 ms; a marca entra em 700 ms após 80 ms; as seções entram em 650 ms quando observadas a um limiar de interseção de 0,08. Cada observador se desconecta após a primeira entrada. A luz ambiente alterna opacidade em 14 segundos. As entradas e microdeslocamentos usam `cubic-bezier(0.22, 1, 0.36, 1)`. O conteúdo não depende da animação para ficar visível. A preferência de movimento reduzido desativa essas animações e transições e remove a rolagem suave.
+## Motion
+
+O momento focal é uma sequência de aproximadamente 1,6 segundo no hero. O cenário e a luz aparecem primeiro; Wendell emerge em 980 ms com deslocamento de 25 pixels, escala de 1,025 e blur limitado a 3 pixels; o leão entra em 1050 ms; a marca chega em 760 ms e recebe um único reflexo dourado; tagline, CTA, fatos e detalhes encerram a sequência. Os elementos continuam disponíveis para interação durante toda a entrada.
+
+Em ponteiros precisos e viewports a partir de 960 pixels, o hero usa profundidade de 2–7 pixels entre cenário, luz, leão e retrato, com interpolação por `requestAnimationFrame`. A luz radial acompanha a posição suavizada do ponteiro. O painel de Cuiabá usa parallax vertical limitado a 20 pixels. Nenhum desses valores atualiza estado React.
+
+Um único `IntersectionObserver`, com limiar de 0,15 e execução única, coordena os reveals das seções. Eyebrow, heading, texto e ação usam distâncias próprias entre 8 e 24 pixels. Fotografias selecionadas usam máscara por `clip-path` e escala de 1,05; listas, métricas, FAQ, rodapé e cartões entram em stagger de 76 ms. As animações são executadas pela Web Animations API e liberadas ao terminar, preservando hover e foco. O conteúdo é visível por padrão caso JavaScript ou a API de animação falhe.
+
+Os tokens principais são `220ms` para feedback, `420ms` para transições, `680ms` para reveal e `1050ms` para a camada cinematográfica, todos apoiados por `cubic-bezier(0.22, 1, 0.36, 1)`. A luz ambiente alterna opacidade em 18 segundos. Em até 600 pixels, as distâncias são limitadas a 18 pixels; tracking de ponteiro e parallax ficam desativados abaixo de 960 pixels. `prefers-reduced-motion: reduce` elimina entradas, movimento contínuo, tracking, parallax e rolagem suave.
 
 ## Shapes
 
@@ -178,13 +186,13 @@ O recorte da marca é retangular e proporcional. As fotografias do palestrante u
 
 As ações têm texto forte, caixa alta e pouco arredondamento. O botão cinematográfico usa gradiente dourado, altura mínima de 60 pixels, padding de 18 × 32 pixels e ícone de seta; o hero limita a largura a 360 pixels, reduzida a 330 pixels até 600 pixels de viewport, onde a altura mínima é 57 pixels e o texto tem 13 pixels.
 
-Os botões secundários existentes são transparentes ou levemente brancos, com borda tênue; no hover recebem borda e texto dourados, com fundo dourado de baixa opacidade. O acesso em destaque usa o dourado do tema sólido. Os botões dos cartões têm altura de 50 pixels e nenhuma sombra. Os controles marcados da landing sobem 2 pixels no hover e retornam à origem quando ativos, com transição de 240 ms. O botão cinematográfico também aumenta o brilho para 1,08.
+Os botões secundários existentes são transparentes ou levemente brancos, com borda tênue; no hover recebem borda e texto dourados, com fundo dourado de baixa opacidade. O acesso em destaque usa o dourado do tema sólido. Os botões dos cartões têm altura de 50 pixels e nenhuma sombra. Os controles marcados da landing sobem 2 pixels no hover e retornam à origem com escala de 0,985 quando ativos, em 220–240 ms. Setas avançam 3 pixels no hover e no foco. O botão cinematográfico também aumenta o brilho para 1,08.
 
 Todos os elementos focáveis da landing recebem contorno dourado de 2 pixels com afastamento de 5 pixels. O Button existente pode manter seu anel semântico adicional.
 
 ### Cards / Containers
 
-Os três níveis de acesso usam cartões verticais, com lista flexível para alinhar os botões. A borda normal é a linha da landing; o acesso destacado tem borda dourada com 55% de opacidade. No hover, qualquer cartão sobe 2 pixels, usa fundo branco a 3,5% e borda branca a 24%. Essa regra de hover também prevalece no cartão destacado.
+Os três níveis de acesso usam cartões verticais, com lista flexível para alinhar os botões. A borda normal é a linha da landing; o acesso destacado tem borda dourada com 55% de opacidade. Em ponteiros precisos, o hover sobe 4 pixels, clareia fundo e borda e aplica uma sombra deslocada de baixa opacidade. Em touch, o deslocamento de hover é removido.
 
 Os blocos de público, experiência e estatísticas usam bordas e respiro, sem se tornarem cartões preenchidos. O vídeo usa uma moldura escura de proporção fixa; a incorporação YouTube existente permanece. A documentação visual não confirma a reprodução do vídeo.
 
