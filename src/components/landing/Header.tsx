@@ -14,12 +14,11 @@ export function Header() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4 sm:h-20">
           <a href="#top" className="relative z-10 min-w-0 leading-tight">
-            <span className="block truncate font-display text-xl leading-none tracking-[0.2em] text-white sm:text-2xl">
-              NOVO <span className="text-gold-gradient">PROTAGON</span>
-            </span>
-            <span className="mt-1.5 block truncate text-[10px] font-extrabold uppercase tracking-[0.5em] text-muted-foreground sm:text-[11px]">
-              Cuiabá — MT
-            </span>
+            <img
+              src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_56_34.png"
+              alt="Novo Protagon Cuiabá"
+              className="h-12 w-auto object-contain sm:h-14"
+            />
           </a>
 
           <nav className="hidden items-center gap-8 lg:flex">
