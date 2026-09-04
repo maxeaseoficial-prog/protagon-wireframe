@@ -381,7 +381,7 @@
       "file_type": "code",
       "norm_label": "aboutwendell()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L163"
+      "source_location": "L168"
     },
     {
       "id": "src_components_landing_sections_accesstypes",
@@ -392,7 +392,7 @@
       "file_type": "code",
       "norm_label": "accesstypes()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L374"
+      "source_location": "L451"
     },
     {
       "id": "src_components_landing_sections_audiencesection",
@@ -403,7 +403,7 @@
       "file_type": "code",
       "norm_label": "audiencesection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L229"
+      "source_location": "L244"
     },
     {
       "id": "src_components_landing_sections_container",
@@ -414,7 +414,7 @@
       "file_type": "code",
       "norm_label": "container()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L38"
+      "source_location": "L42"
     },
     {
       "id": "src_components_landing_sections_eventexperience",
@@ -425,7 +425,7 @@
       "file_type": "code",
       "norm_label": "eventexperience()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L104"
+      "source_location": "L108"
     },
     {
       "id": "src_components_landing_sections_eyebrow",
@@ -436,7 +436,7 @@
       "file_type": "code",
       "norm_label": "eyebrow()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L46"
+      "source_location": "L50"
     },
     {
       "id": "src_components_landing_sections_faqsection",
@@ -447,7 +447,7 @@
       "file_type": "code",
       "norm_label": "faqsection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L500"
+      "source_location": "L583"
     },
     {
       "id": "src_components_landing_sections_finalcta",
@@ -458,7 +458,7 @@
       "file_type": "code",
       "norm_label": "finalcta()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L589"
+      "source_location": "L672"
     },
     {
       "id": "src_components_landing_sections_footer",
@@ -469,7 +469,7 @@
       "file_type": "code",
       "norm_label": "footer()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L643"
+      "source_location": "L726"
     },
     {
       "id": "src_components_landing_sections_guaranteesection",
@@ -480,7 +480,7 @@
       "file_type": "code",
       "norm_label": "guaranteesection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L440"
+      "source_location": "L517"
     },
     {
       "id": "src_components_landing_sections_journeysection",
@@ -491,7 +491,7 @@
       "file_type": "code",
       "norm_label": "journeysection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L536"
+      "source_location": "L619"
     },
     {
       "id": "src_components_landing_sections_locationsection",
@@ -502,7 +502,7 @@
       "file_type": "code",
       "norm_label": "locationsection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L271"
+      "source_location": "L286"
     },
     {
       "id": "src_components_landing_sections_section",
@@ -513,7 +513,7 @@
       "file_type": "code",
       "norm_label": "section()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L22"
+      "source_location": "L26"
     },
     {
       "id": "src_components_landing_sections_vslsection",
@@ -524,7 +524,7 @@
       "file_type": "code",
       "norm_label": "vslsection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L58"
+      "source_location": "L62"
     },
     {
       "id": "src_components_landing_uselandingmotion_playandrelease",
@@ -590,7 +590,7 @@
       "file_type": "code",
       "norm_label": "index()",
       "source_file": "src/routes/index.tsx",
-      "source_location": "L38"
+      "source_location": "L52"
     },
     {
       "id": "src_components_ui_sidebar_usesidebar",
@@ -1030,7 +1030,7 @@
       "file_type": "code",
       "norm_label": "rootcomponent()",
       "source_file": "src/routes/__root.tsx",
-      "source_location": "L117"
+      "source_location": "L123"
     },
     {
       "id": "src_routes_root_rootshell",
@@ -1041,7 +1041,7 @@
       "file_type": "code",
       "norm_label": "rootshell()",
       "source_file": "src/routes/__root.tsx",
-      "source_location": "L103"
+      "source_location": "L109"
     },
     {
       "id": "src_components_ui_alert_dialog_alertdialogfooter",
@@ -1331,7 +1331,7 @@
       "file_type": "code",
       "norm_label": "audience",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L222"
+      "source_location": "L237"
     },
     {
       "id": "src_components_landing_sections_experiencehighlights",
@@ -1341,7 +1341,7 @@
       "file_type": "code",
       "norm_label": "experiencehighlights",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L97"
+      "source_location": "L101"
     },
     {
       "id": "src_components_landing_sections_faq",
@@ -1351,7 +1351,7 @@
       "file_type": "code",
       "norm_label": "faq",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L490"
+      "source_location": "L567"
     },
     {
       "id": "src_components_landing_sections_stats",
@@ -1361,7 +1361,7 @@
       "file_type": "code",
       "norm_label": "stats",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L157"
+      "source_location": "L161"
     },
     {
       "id": "src_components_landing_sections_tiers",
@@ -1371,7 +1371,7 @@
       "file_type": "code",
       "norm_label": "tiers",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L347"
+      "source_location": "L424"
     },
     {
       "id": "src_components_landing_uselandingmotion",
@@ -8430,7 +8430,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/routes/index.tsx",
-      "source_location": "L40",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -9558,7 +9558,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L14",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -9570,7 +9570,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L15",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -9582,7 +9582,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L15",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -9594,7 +9594,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L15",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -10674,7 +10674,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L14",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -10686,7 +10686,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L15",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -12731,13 +12731,24 @@
     },
     {
       "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_experiencehighlights",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
       "target": "src_components_landing_sections_eventexperience",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L104",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -12748,7 +12759,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L157",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -12759,18 +12770,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L163",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_section",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L22",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -12781,7 +12781,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L222",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -12792,7 +12792,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L229",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_section",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -12803,29 +12814,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L271",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_tiers",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L347",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_accesstypes",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L374",
+      "source_location": "L286",
       "weight": 1.0
     },
     {
@@ -12836,18 +12825,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L38",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
       "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_guaranteesection",
+      "target": "src_components_landing_sections_tiers",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L440",
+      "source_location": "L424",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_accesstypes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L451",
       "weight": 1.0
     },
     {
@@ -12858,7 +12858,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L46",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_guaranteesection",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L517",
       "weight": 1.0
     },
     {
@@ -12869,7 +12880,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L490",
+      "source_location": "L567",
       "weight": 1.0
     },
     {
@@ -12880,7 +12891,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L500",
+      "source_location": "L583",
       "weight": 1.0
     },
     {
@@ -12891,7 +12902,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L536",
+      "source_location": "L619",
       "weight": 1.0
     },
     {
@@ -12902,7 +12913,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L58",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -12913,7 +12924,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L589",
+      "source_location": "L672",
       "weight": 1.0
     },
     {
@@ -12924,18 +12935,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L643",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_experiencehighlights",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L97",
+      "source_location": "L726",
       "weight": 1.0
     },
     {
@@ -16191,19 +16191,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/routes/index.tsx",
-      "source_location": "L35",
-      "weight": 1.0
-    },
-    {
-      "source": "src_routes_root",
-      "target": "src_routes_root_errorcomponent",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "src/routes/__root.tsx",
-      "source_location": "L100",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -16215,7 +16203,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/routes/__root.tsx",
-      "source_location": "L97",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -16227,7 +16215,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/routes/__root.tsx",
-      "source_location": "L98",
+      "source_location": "L104",
       "weight": 1.0
     },
     {
@@ -16239,10 +16227,22 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/routes/__root.tsx",
-      "source_location": "L99",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "src_routes_root",
+      "target": "src_routes_root_errorcomponent",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "src/routes/__root.tsx",
+      "source_location": "L106",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7a166361d2ba76c971d7058e9beea2d88a941678"
+  "built_at_commit": "cc2ecc82e381c2f9a36ff39c80ebf754c1580d59"
 }
