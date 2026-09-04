@@ -197,16 +197,13 @@ export function VslSection() {
         </h2>
 
         <div className="animate-scale-in group relative mx-auto mt-10 aspect-video w-full max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl shadow-black/60">
-          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(6,78,59,0.55),rgba(0,0,0,0.7))]" />
-          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(212,175,55,0.14),transparent_70%)] transition-opacity duration-500 group-hover:opacity-150" />
-          <div aria-hidden className="absolute inset-0 flex items-center justify-center">
-            <div className="animate-glow-pulse flex h-20 w-20 items-center justify-center rounded-full border border-primary/50 bg-primary/15 backdrop-blur transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24">
-              <Play className="h-8 w-8 translate-x-0.5 fill-primary text-primary sm:h-10 sm:w-10" />
-            </div>
-          </div>
-          <p className="absolute inset-x-0 bottom-6 text-center text-[10px] font-bold uppercase tracking-[0.4em] text-muted-foreground">
-            Vídeo oficial breve · play em breve
-          </p>
+          <iframe
+            className="absolute inset-0 h-full w-full border-0"
+            src="https://www.youtube.com/embed/s40NIz9b6jw?si=X2y9_X3tD-yF9Sxb"
+            title="Assista ao vídeo e descubra por que o Protagon vai transformar a sua vida"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
         </div>
       </Container>
     </Section>
