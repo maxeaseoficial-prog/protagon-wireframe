@@ -291,7 +291,7 @@ export function AboutWendell() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/50 p-2 shadow-2xl shadow-black/70 backdrop-blur-sm">
             <div className="relative overflow-hidden rounded-[1.25rem]">
               <img
-                src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_26_17.png"
+                src="/uploads/Design_sem_nome_2_.png"
                 alt="Retrato de Wendell Carvalho"
                 className="aspect-[4/5] w-full object-cover"
                 loading="lazy"
