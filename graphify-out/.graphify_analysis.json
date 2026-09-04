@@ -1,6 +1,53 @@
 {
   "communities": {
     "0": [
+      "src_components_ui_alert",
+      "src_components_ui_alert_alert",
+      "src_components_ui_alert_alertdescription",
+      "src_components_ui_alert_alerttitle",
+      "src_components_ui_alert_alertvariants",
+      "src_components_ui_badge",
+      "src_components_ui_badge_badge",
+      "src_components_ui_badge_badgeprops",
+      "src_components_ui_badge_badgevariants",
+      "src_components_ui_checkbox",
+      "src_components_ui_checkbox_checkbox",
+      "src_components_ui_hover_card",
+      "src_components_ui_hover_card_hovercardcontent",
+      "src_components_ui_input_otp",
+      "src_components_ui_input_otp_inputotp",
+      "src_components_ui_input_otp_inputotpgroup",
+      "src_components_ui_input_otp_inputotpseparator",
+      "src_components_ui_input_otp_inputotpslot",
+      "src_components_ui_popover",
+      "src_components_ui_popover_popovercontent",
+      "src_components_ui_progress",
+      "src_components_ui_progress_progress",
+      "src_components_ui_radio_group",
+      "src_components_ui_radio_group_radiogroup",
+      "src_components_ui_radio_group_radiogroupitem",
+      "src_components_ui_resizable",
+      "src_components_ui_resizable_resizablehandle",
+      "src_components_ui_resizable_resizablepanelgroup",
+      "src_components_ui_scroll_area",
+      "src_components_ui_scroll_area_scrollarea",
+      "src_components_ui_scroll_area_scrollbar",
+      "src_components_ui_slider",
+      "src_components_ui_slider_slider",
+      "src_components_ui_switch",
+      "src_components_ui_switch_switch",
+      "src_components_ui_textarea",
+      "src_components_ui_textarea_textarea",
+      "src_components_ui_toggle",
+      "src_components_ui_toggle_group",
+      "src_components_ui_toggle_group_togglegroup",
+      "src_components_ui_toggle_group_togglegroupcontext",
+      "src_components_ui_toggle_group_togglegroupitem",
+      "src_components_ui_toggle_toggle",
+      "src_components_ui_toggle_togglevariants",
+      "src_lib_utils"
+    ],
+    "1": [
       "src_components_ui_input",
       "src_components_ui_input_input",
       "src_components_ui_separator",
@@ -40,7 +87,7 @@
       "src_hooks_use_mobile",
       "src_hooks_use_mobile_useismobile"
     ],
-    "1": [
+    "2": [
       "eslint",
       "eslint_config_prettier",
       "eslint_js",
@@ -77,7 +124,11 @@
       "vite",
       "vitejs_plugin_react"
     ],
-    "2": [
+    "3": [
+      "src_components_ui_avatar",
+      "src_components_ui_avatar_avatar",
+      "src_components_ui_avatar_avatarfallback",
+      "src_components_ui_avatar_avatarimage",
       "src_components_ui_context_menu",
       "src_components_ui_context_menu_contextmenucheckboxitem",
       "src_components_ui_context_menu_contextmenucontent",
@@ -88,12 +139,14 @@
       "src_components_ui_context_menu_contextmenushortcut",
       "src_components_ui_context_menu_contextmenusubcontent",
       "src_components_ui_context_menu_contextmenusubtrigger",
-      "src_components_ui_resizable",
-      "src_components_ui_resizable_resizablehandle",
-      "src_components_ui_resizable_resizablepanelgroup",
-      "src_components_ui_scroll_area",
-      "src_components_ui_scroll_area_scrollarea",
-      "src_components_ui_scroll_area_scrollbar",
+      "src_components_ui_drawer",
+      "src_components_ui_drawer_drawer",
+      "src_components_ui_drawer_drawercontent",
+      "src_components_ui_drawer_drawerdescription",
+      "src_components_ui_drawer_drawerfooter",
+      "src_components_ui_drawer_drawerheader",
+      "src_components_ui_drawer_draweroverlay",
+      "src_components_ui_drawer_drawertitle",
       "src_components_ui_select",
       "src_components_ui_select_selectcontent",
       "src_components_ui_select_selectitem",
@@ -102,18 +155,49 @@
       "src_components_ui_select_selectscrollupbutton",
       "src_components_ui_select_selectseparator",
       "src_components_ui_select_selecttrigger",
-      "src_components_ui_table",
-      "src_components_ui_table_table",
-      "src_components_ui_table_tablebody",
-      "src_components_ui_table_tablecaption",
-      "src_components_ui_table_tablecell",
-      "src_components_ui_table_tablefooter",
-      "src_components_ui_table_tablehead",
-      "src_components_ui_table_tableheader",
-      "src_components_ui_table_tablerow",
+      "src_components_ui_tabs",
+      "src_components_ui_tabs_tabscontent",
+      "src_components_ui_tabs_tabslist",
+      "src_components_ui_tabs_tabstrigger",
       "src_lib_utils_cn"
     ],
-    "3": [
+    "4": [
+      "src_components_landing_brandmark",
+      "src_components_landing_brandmark_brandmark",
+      "src_components_landing_header",
+      "src_components_landing_header_header",
+      "src_components_landing_header_links",
+      "src_components_landing_hero",
+      "src_components_landing_hero_eventfacts",
+      "src_components_landing_hero_hero",
+      "src_components_landing_sections",
+      "src_components_landing_sections_aboutwendell",
+      "src_components_landing_sections_accesstypes",
+      "src_components_landing_sections_audience",
+      "src_components_landing_sections_audiencesection",
+      "src_components_landing_sections_container",
+      "src_components_landing_sections_eventexperience",
+      "src_components_landing_sections_experiencehighlights",
+      "src_components_landing_sections_eyebrow",
+      "src_components_landing_sections_faq",
+      "src_components_landing_sections_faqsection",
+      "src_components_landing_sections_finalcta",
+      "src_components_landing_sections_footer",
+      "src_components_landing_sections_guaranteesection",
+      "src_components_landing_sections_journeysection",
+      "src_components_landing_sections_locationsection",
+      "src_components_landing_sections_section",
+      "src_components_landing_sections_stats",
+      "src_components_landing_sections_tiers",
+      "src_components_landing_sections_vslsection",
+      "src_components_ui_accordion",
+      "src_components_ui_accordion_accordioncontent",
+      "src_components_ui_accordion_accordionitem",
+      "src_components_ui_accordion_accordiontrigger",
+      "src_routes_index",
+      "src_routes_index_index"
+    ],
+    "5": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_es2022",
@@ -147,66 +231,6 @@
       "tsconfig_compileroptions_verbatimmodulesyntax",
       "tsconfig_include"
     ],
-    "4": [
-      "src_components_landing_header",
-      "src_components_landing_header_header",
-      "src_components_landing_header_links",
-      "src_components_ui_alert_dialog",
-      "src_components_ui_alert_dialog_alertdialogaction",
-      "src_components_ui_alert_dialog_alertdialogcancel",
-      "src_components_ui_alert_dialog_alertdialogcontent",
-      "src_components_ui_alert_dialog_alertdialogdescription",
-      "src_components_ui_alert_dialog_alertdialogfooter",
-      "src_components_ui_alert_dialog_alertdialogheader",
-      "src_components_ui_alert_dialog_alertdialogoverlay",
-      "src_components_ui_alert_dialog_alertdialogtitle",
-      "src_components_ui_button",
-      "src_components_ui_button_button",
-      "src_components_ui_button_buttonprops",
-      "src_components_ui_button_buttonvariants",
-      "src_components_ui_calendar",
-      "src_components_ui_calendar_calendar",
-      "src_components_ui_calendar_calendardaybutton",
-      "src_components_ui_pagination",
-      "src_components_ui_pagination_pagination",
-      "src_components_ui_pagination_paginationcontent",
-      "src_components_ui_pagination_paginationellipsis",
-      "src_components_ui_pagination_paginationitem",
-      "src_components_ui_pagination_paginationlink",
-      "src_components_ui_pagination_paginationlinkprops",
-      "src_components_ui_pagination_paginationnext",
-      "src_components_ui_pagination_paginationprevious"
-    ],
-    "5": [
-      "src_components_landing_sections",
-      "src_components_landing_sections_aboutwendell",
-      "src_components_landing_sections_accesstypes",
-      "src_components_landing_sections_audience",
-      "src_components_landing_sections_audiencesection",
-      "src_components_landing_sections_container",
-      "src_components_landing_sections_eventexperience",
-      "src_components_landing_sections_experiencehighlights",
-      "src_components_landing_sections_eyebrow",
-      "src_components_landing_sections_faq",
-      "src_components_landing_sections_faqsection",
-      "src_components_landing_sections_finalcta",
-      "src_components_landing_sections_footer",
-      "src_components_landing_sections_guaranteesection",
-      "src_components_landing_sections_hero",
-      "src_components_landing_sections_herochips",
-      "src_components_landing_sections_journeysection",
-      "src_components_landing_sections_locationsection",
-      "src_components_landing_sections_section",
-      "src_components_landing_sections_stats",
-      "src_components_landing_sections_tiers",
-      "src_components_landing_sections_vslsection",
-      "src_components_ui_accordion",
-      "src_components_ui_accordion_accordioncontent",
-      "src_components_ui_accordion_accordionitem",
-      "src_components_ui_accordion_accordiontrigger",
-      "src_routes_index",
-      "src_routes_index_index"
-    ],
     "6": [
       "src_lib_lovable_error_reporting",
       "src_lib_lovable_error_reporting_lovableerroroptions",
@@ -237,28 +261,31 @@
       "src_start_startinstance"
     ],
     "7": [
-      "src_components_ui_badge",
-      "src_components_ui_badge_badge",
-      "src_components_ui_badge_badgeprops",
-      "src_components_ui_badge_badgevariants",
-      "src_components_ui_checkbox",
-      "src_components_ui_checkbox_checkbox",
-      "src_components_ui_hover_card",
-      "src_components_ui_hover_card_hovercardcontent",
-      "src_components_ui_popover",
-      "src_components_ui_popover_popovercontent",
-      "src_components_ui_progress",
-      "src_components_ui_progress_progress",
-      "src_components_ui_radio_group",
-      "src_components_ui_radio_group_radiogroup",
-      "src_components_ui_radio_group_radiogroupitem",
-      "src_components_ui_slider",
-      "src_components_ui_slider_slider",
-      "src_components_ui_switch",
-      "src_components_ui_switch_switch",
-      "src_components_ui_textarea",
-      "src_components_ui_textarea_textarea",
-      "src_lib_utils"
+      "src_components_ui_alert_dialog",
+      "src_components_ui_alert_dialog_alertdialogaction",
+      "src_components_ui_alert_dialog_alertdialogcancel",
+      "src_components_ui_alert_dialog_alertdialogcontent",
+      "src_components_ui_alert_dialog_alertdialogdescription",
+      "src_components_ui_alert_dialog_alertdialogfooter",
+      "src_components_ui_alert_dialog_alertdialogheader",
+      "src_components_ui_alert_dialog_alertdialogoverlay",
+      "src_components_ui_alert_dialog_alertdialogtitle",
+      "src_components_ui_button",
+      "src_components_ui_button_button",
+      "src_components_ui_button_buttonprops",
+      "src_components_ui_button_buttonvariants",
+      "src_components_ui_calendar",
+      "src_components_ui_calendar_calendar",
+      "src_components_ui_calendar_calendardaybutton",
+      "src_components_ui_pagination",
+      "src_components_ui_pagination_pagination",
+      "src_components_ui_pagination_paginationcontent",
+      "src_components_ui_pagination_paginationellipsis",
+      "src_components_ui_pagination_paginationitem",
+      "src_components_ui_pagination_paginationlink",
+      "src_components_ui_pagination_paginationlinkprops",
+      "src_components_ui_pagination_paginationnext",
+      "src_components_ui_pagination_paginationprevious"
     ],
     "8": [
       "server_entry",
@@ -442,6 +469,17 @@
       "src_components_ui_sheet_sheetvariants"
     ],
     "19": [
+      "src_components_ui_table",
+      "src_components_ui_table_table",
+      "src_components_ui_table_tablebody",
+      "src_components_ui_table_tablecaption",
+      "src_components_ui_table_tablecell",
+      "src_components_ui_table_tablefooter",
+      "src_components_ui_table_tablehead",
+      "src_components_ui_table_tableheader",
+      "src_components_ui_table_tablerow"
+    ],
+    "20": [
       "src_components_ui_breadcrumb",
       "src_components_ui_breadcrumb_breadcrumb",
       "src_components_ui_breadcrumb_breadcrumbellipsis",
@@ -450,16 +488,6 @@
       "src_components_ui_breadcrumb_breadcrumblist",
       "src_components_ui_breadcrumb_breadcrumbpage",
       "src_components_ui_breadcrumb_breadcrumbseparator"
-    ],
-    "20": [
-      "src_components_ui_drawer",
-      "src_components_ui_drawer_drawer",
-      "src_components_ui_drawer_drawercontent",
-      "src_components_ui_drawer_drawerdescription",
-      "src_components_ui_drawer_drawerfooter",
-      "src_components_ui_drawer_drawerheader",
-      "src_components_ui_drawer_draweroverlay",
-      "src_components_ui_drawer_drawertitle"
     ],
     "21": [
       "src_components_ui_navigation_menu",
@@ -481,256 +509,221 @@
       "src_components_ui_card_cardtitle"
     ],
     "23": [
-      "src_components_ui_toggle",
-      "src_components_ui_toggle_group",
-      "src_components_ui_toggle_group_togglegroup",
-      "src_components_ui_toggle_group_togglegroupcontext",
-      "src_components_ui_toggle_group_togglegroupitem",
-      "src_components_ui_toggle_toggle",
-      "src_components_ui_toggle_togglevariants"
-    ],
-    "24": [
-      "src_components_ui_alert",
-      "src_components_ui_alert_alert",
-      "src_components_ui_alert_alertdescription",
-      "src_components_ui_alert_alerttitle",
-      "src_components_ui_alert_alertvariants"
-    ],
-    "25": [
-      "src_components_ui_input_otp",
-      "src_components_ui_input_otp_inputotp",
-      "src_components_ui_input_otp_inputotpgroup",
-      "src_components_ui_input_otp_inputotpseparator",
-      "src_components_ui_input_otp_inputotpslot"
-    ],
-    "26": [
-      "src_components_ui_avatar",
-      "src_components_ui_avatar_avatar",
-      "src_components_ui_avatar_avatarfallback",
-      "src_components_ui_avatar_avatarimage"
-    ],
-    "27": [
-      "src_components_ui_tabs",
-      "src_components_ui_tabs_tabscontent",
-      "src_components_ui_tabs_tabslist",
-      "src_components_ui_tabs_tabstrigger"
-    ],
-    "28": [
       "src_components_landing_placeholder",
       "src_components_landing_placeholder_placeholder",
       "src_components_landing_placeholder_section"
     ],
-    "29": [
+    "24": [
       "src_components_ui_sonner",
       "src_components_ui_sonner_toaster",
       "src_components_ui_sonner_toasterprops"
     ],
-    "30": [
+    "25": [
       "class_variance_authority",
       "package_dependencies_class_variance_authority"
     ],
-    "31": [
+    "26": [
       "clsx",
       "package_dependencies_clsx"
     ],
-    "32": [
+    "27": [
       "date_fns",
       "package_dependencies_date_fns"
     ],
-    "33": [
+    "28": [
       "embla_carousel_react",
       "package_dependencies_embla_carousel_react"
     ],
-    "34": [
+    "29": [
       "hookform_resolvers",
       "package_dependencies_hookform_resolvers"
     ],
-    "35": [
+    "30": [
       "input_otp",
       "package_dependencies_input_otp"
     ],
-    "36": [
+    "31": [
       "package_dependencies_radix_ui_react_accordion",
       "radix_ui_react_accordion"
     ],
-    "37": [
+    "32": [
       "package_dependencies_radix_ui_react_alert_dialog",
       "radix_ui_react_alert_dialog"
     ],
-    "38": [
+    "33": [
       "package_dependencies_radix_ui_react_aspect_ratio",
       "radix_ui_react_aspect_ratio"
     ],
-    "39": [
+    "34": [
       "package_dependencies_radix_ui_react_avatar",
       "radix_ui_react_avatar"
     ],
-    "40": [
+    "35": [
       "package_dependencies_radix_ui_react_collapsible",
       "radix_ui_react_collapsible"
     ],
-    "41": [
+    "36": [
       "package_dependencies_radix_ui_react_context_menu",
       "radix_ui_react_context_menu"
     ],
-    "42": [
+    "37": [
       "package_dependencies_radix_ui_react_dialog",
       "radix_ui_react_dialog"
     ],
-    "43": [
+    "38": [
       "package_dependencies_radix_ui_react_dropdown_menu",
       "radix_ui_react_dropdown_menu"
     ],
-    "44": [
+    "39": [
       "package_dependencies_radix_ui_react_hover_card",
       "radix_ui_react_hover_card"
     ],
-    "45": [
+    "40": [
       "package_dependencies_radix_ui_react_label",
       "radix_ui_react_label"
     ],
-    "46": [
+    "41": [
       "package_dependencies_radix_ui_react_menubar",
       "radix_ui_react_menubar"
     ],
-    "47": [
+    "42": [
       "package_dependencies_radix_ui_react_navigation_menu",
       "radix_ui_react_navigation_menu"
     ],
-    "48": [
+    "43": [
       "package_dependencies_radix_ui_react_popover",
       "radix_ui_react_popover"
     ],
-    "49": [
+    "44": [
       "package_dependencies_radix_ui_react_radio_group",
       "radix_ui_react_radio_group"
     ],
-    "50": [
+    "45": [
       "package_dependencies_radix_ui_react_scroll_area",
       "radix_ui_react_scroll_area"
     ],
-    "51": [
+    "46": [
       "package_dependencies_radix_ui_react_select",
       "radix_ui_react_select"
     ],
-    "52": [
+    "47": [
       "package_dependencies_radix_ui_react_separator",
       "radix_ui_react_separator"
     ],
-    "53": [
+    "48": [
       "package_dependencies_radix_ui_react_slider",
       "radix_ui_react_slider"
     ],
-    "54": [
+    "49": [
       "package_dependencies_radix_ui_react_slot",
       "radix_ui_react_slot"
     ],
-    "55": [
+    "50": [
       "package_dependencies_radix_ui_react_switch",
       "radix_ui_react_switch"
     ],
-    "56": [
+    "51": [
       "package_dependencies_radix_ui_react_tabs",
       "radix_ui_react_tabs"
     ],
-    "57": [
+    "52": [
       "package_dependencies_radix_ui_react_toggle",
       "radix_ui_react_toggle"
     ],
-    "58": [
+    "53": [
       "package_dependencies_radix_ui_react_toggle_group",
       "radix_ui_react_toggle_group"
     ],
-    "59": [
+    "54": [
       "package_dependencies_radix_ui_react_tooltip",
       "radix_ui_react_tooltip"
     ],
-    "60": [
+    "55": [
       "package_dependencies_react_day_picker",
       "react_day_picker"
     ],
-    "61": [
+    "56": [
       "package_dependencies_react_dom",
       "react_dom"
     ],
-    "62": [
+    "57": [
       "package_dependencies_react_hook_form",
       "react_hook_form"
     ],
-    "63": [
+    "58": [
       "package_dependencies_react_resizable_panels",
       "react_resizable_panels"
     ],
-    "64": [
+    "59": [
       "package_dependencies_recharts",
       "recharts"
     ],
-    "65": [
+    "60": [
       "package_dependencies_tailwind_merge",
       "tailwind_merge"
     ],
-    "66": [
+    "61": [
       "package_dependencies_tailwindcss",
       "tailwindcss"
     ],
-    "67": [
+    "62": [
       "package_dependencies_tailwindcss_vite",
       "tailwindcss_vite"
     ],
-    "68": [
+    "63": [
       "package_dependencies_tanstack_react_query",
       "tanstack_react_query"
     ],
-    "69": [
+    "64": [
       "package_dependencies_tanstack_react_router",
       "tanstack_react_router"
     ],
-    "70": [
+    "65": [
       "package_dependencies_tanstack_react_start",
       "tanstack_react_start"
     ],
-    "71": [
+    "66": [
       "package_dependencies_tanstack_router_plugin",
       "tanstack_router_plugin"
     ],
-    "72": [
+    "67": [
       "package_dependencies_tw_animate_css",
       "tw_animate_css"
     ],
-    "73": [
+    "68": [
       "package_dependencies_vaul",
       "vaul"
     ],
-    "74": [
+    "69": [
       "package_dependencies_vite_tsconfig_paths",
       "vite_tsconfig_paths"
     ],
-    "75": [
+    "70": [
       "package_dependencies_zod",
       "zod"
     ],
-    "76": [
+    "71": [
       "eslint_config"
     ],
-    "77": [
+    "72": [
       "src_components_ui_aspect_ratio"
     ],
-    "78": [
+    "73": [
       "src_components_ui_collapsible"
     ],
-    "79": [
+    "74": [
       "vite_config"
     ]
   },
   "cohesion": {
-    "0": 0.06827880512091039,
-    "1": 0.05714285714285714,
-    "2": 0.10873440285204991,
-    "3": 0.0625,
-    "4": 0.10317460317460317,
-    "5": 0.1111111111111111,
+    "0": 0.050505050505050504,
+    "1": 0.06827880512091039,
+    "2": 0.05714285714285714,
+    "3": 0.10420168067226891,
+    "4": 0.0962566844919786,
+    "5": 0.0625,
     "6": 0.10256410256410256,
-    "7": 0.09523809523809523,
+    "7": 0.11666666666666667,
     "8": 0.1631578947368421,
     "9": 0.10526315789473684,
     "10": 0.125,
@@ -742,17 +735,17 @@
     "16": 0.2545454545454545,
     "17": 0.2,
     "18": 0.25,
-    "19": 0.25,
+    "19": 0.2222222222222222,
     "20": 0.25,
     "21": 0.2857142857142857,
     "22": 0.2857142857142857,
-    "23": 0.42857142857142855,
-    "24": 0.5,
-    "25": 0.4,
-    "26": 0.5,
-    "27": 0.5,
-    "28": 0.6666666666666666,
-    "29": 0.6666666666666666,
+    "23": 0.6666666666666666,
+    "24": 0.6666666666666666,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
     "30": 1.0,
     "31": 1.0,
     "32": 1.0,
@@ -797,12 +790,7 @@
     "71": 1.0,
     "72": 1.0,
     "73": 1.0,
-    "74": 1.0,
-    "75": 1.0,
-    "76": 1.0,
-    "77": 1.0,
-    "78": 1.0,
-    "79": 1.0
+    "74": 1.0
   },
   "gods": [
     {
@@ -821,13 +809,13 @@
       "degree": 9
     },
     {
-      "id": "src_components_ui_button_button",
-      "label": "Button",
-      "degree": 8
-    },
-    {
       "id": "package_scripts",
       "label": "scripts",
+      "degree": 7
+    },
+    {
+      "id": "src_components_ui_button_button",
+      "label": "Button",
       "degree": 7
     },
     {
