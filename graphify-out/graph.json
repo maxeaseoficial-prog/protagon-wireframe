@@ -820,7 +820,7 @@
       "file_type": "code",
       "norm_label": "aboutwendell()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L285"
+      "source_location": "L227"
     },
     {
       "id": "src_components_landing_sections_accesstypes",
@@ -831,7 +831,7 @@
       "file_type": "code",
       "norm_label": "accesstypes()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L446"
+      "source_location": "L388"
     },
     {
       "id": "src_components_landing_sections_audiencesection",
@@ -842,7 +842,7 @@
       "file_type": "code",
       "norm_label": "audiencesection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L350"
+      "source_location": "L292"
     },
     {
       "id": "src_components_landing_sections_container",
@@ -864,7 +864,7 @@
       "file_type": "code",
       "norm_label": "eventexperience()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L220"
+      "source_location": "L162"
     },
     {
       "id": "src_components_landing_sections_eyebrow",
@@ -886,7 +886,7 @@
       "file_type": "code",
       "norm_label": "faqsection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L548"
+      "source_location": "L490"
     },
     {
       "id": "src_components_landing_sections_finalcta",
@@ -897,7 +897,7 @@
       "file_type": "code",
       "norm_label": "finalcta()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L614"
+      "source_location": "L556"
     },
     {
       "id": "src_components_landing_sections_footer",
@@ -908,7 +908,7 @@
       "file_type": "code",
       "norm_label": "footer()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L652"
+      "source_location": "L594"
     },
     {
       "id": "src_components_landing_sections_guaranteesection",
@@ -919,7 +919,7 @@
       "file_type": "code",
       "norm_label": "guaranteesection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L506"
+      "source_location": "L448"
     },
     {
       "id": "src_components_landing_sections_hero",
@@ -941,7 +941,7 @@
       "file_type": "code",
       "norm_label": "journeysection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L581"
+      "source_location": "L523"
     },
     {
       "id": "src_components_landing_sections_locationsection",
@@ -952,7 +952,7 @@
       "file_type": "code",
       "norm_label": "locationsection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L381"
+      "source_location": "L323"
     },
     {
       "id": "src_components_landing_sections_section",
@@ -974,7 +974,7 @@
       "file_type": "code",
       "norm_label": "vslsection()",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L187"
+      "source_location": "L129"
     },
     {
       "id": "src_routes_index_index",
@@ -4503,7 +4503,7 @@
       "file_type": "code",
       "norm_label": "audience",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L343"
+      "source_location": "L285"
     },
     {
       "id": "src_components_landing_sections_experiencehighlights",
@@ -4513,7 +4513,7 @@
       "file_type": "code",
       "norm_label": "experiencehighlights",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L213"
+      "source_location": "L155"
     },
     {
       "id": "src_components_landing_sections_faq",
@@ -4523,7 +4523,7 @@
       "file_type": "code",
       "norm_label": "faq",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L538"
+      "source_location": "L480"
     },
     {
       "id": "src_components_landing_sections_herochips",
@@ -4543,7 +4543,7 @@
       "file_type": "code",
       "norm_label": "stats",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L279"
+      "source_location": "L221"
     },
     {
       "id": "src_components_landing_sections_tiers",
@@ -4553,7 +4553,7 @@
       "file_type": "code",
       "norm_label": "tiers",
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L419"
+      "source_location": "L361"
     },
     {
       "id": "src_components_ui_accordion",
@@ -12406,7 +12406,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L187",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -12417,7 +12417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L213",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -12428,7 +12428,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L220",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_stats",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_aboutwendell",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L227",
       "weight": 1.0
     },
     {
@@ -12444,18 +12466,7 @@
     },
     {
       "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_stats",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L279",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_aboutwendell",
+      "target": "src_components_landing_sections_audience",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12466,24 +12477,13 @@
     },
     {
       "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_audience",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L343",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
       "target": "src_components_landing_sections_audiencesection",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L350",
+      "source_location": "L292",
       "weight": 1.0
     },
     {
@@ -12494,7 +12494,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L381",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -12505,7 +12505,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L419",
+      "source_location": "L361",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_accesstypes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -12521,24 +12532,13 @@
     },
     {
       "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_accesstypes",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L446",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
       "target": "src_components_landing_sections_guaranteesection",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L506",
+      "source_location": "L448",
       "weight": 1.0
     },
     {
@@ -12549,7 +12549,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L538",
+      "source_location": "L480",
       "weight": 1.0
     },
     {
@@ -12560,7 +12560,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L548",
+      "source_location": "L490",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_journeysection",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L523",
       "weight": 1.0
     },
     {
@@ -12576,24 +12587,24 @@
     },
     {
       "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_journeysection",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L581",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
       "target": "src_components_landing_sections_finalcta",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L614",
+      "source_location": "L556",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_landing_sections",
+      "target": "src_components_landing_sections_footer",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/landing/Sections.tsx",
+      "source_location": "L594",
       "weight": 1.0
     },
     {
@@ -12605,17 +12616,6 @@
       "confidence_score": 1.0,
       "source_file": "src/components/landing/Sections.tsx",
       "source_location": "L64",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_landing_sections",
-      "target": "src_components_landing_sections_footer",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/landing/Sections.tsx",
-      "source_location": "L652",
       "weight": 1.0
     },
     {
@@ -15858,5 +15858,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f557059bfc75e5900fbc52a985aeb7323757446d"
+  "built_at_commit": "cd8cbeb40caac60716730856037cf95e8be87115"
 }
