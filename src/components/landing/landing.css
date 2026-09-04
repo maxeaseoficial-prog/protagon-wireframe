@@ -73,6 +73,9 @@ html {
   aspect-ratio: 1060 / 432;
   overflow: hidden;
 }
+.brand-mark picture {
+  display: block;
+}
 .brand-mark img {
   position: absolute;
   width: 144.90566%;
@@ -129,7 +132,6 @@ html {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--landing-gold);
-  border-bottom: 1px solid rgb(232 192 76 / 60%);
 }
 .header-access svg {
   width: 16px;
@@ -166,6 +168,11 @@ html {
   inset: 0;
   z-index: -5;
 }
+.hero-scenery picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .hero-scenery img {
   width: 100%;
   height: 100%;
@@ -199,6 +206,11 @@ html {
   height: auto;
   opacity: 0.065;
   z-index: -3;
+}
+.hero-lion img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .hero-person {
   position: absolute;
@@ -318,6 +330,20 @@ html {
   width: 23px;
   height: 23px;
   stroke-width: 1.8;
+}
+.header-access.gold-button {
+  min-height: 42px;
+  padding: 11px 18px;
+  gap: 10px;
+  border-color: #f3d77c;
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 22%);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+.header-access.gold-button svg {
+  width: 16px;
+  height: 16px;
 }
 .hero-cta {
   width: min(360px, 100%);
@@ -501,6 +527,9 @@ html {
 .authority-stats {
   border-top: 1px solid var(--landing-line);
 }
+.wendell-bio p + p {
+  margin-top: 18px;
+}
 .authority-stat {
   padding: 24px 10px 0 0;
 }
@@ -577,6 +606,107 @@ html {
   border: 0;
   background: none;
   padding: 6px 0;
+}
+.location-summary strong,
+.location-summary small {
+  display: block;
+}
+.location-summary strong {
+  font-weight: 700;
+}
+.location-summary small {
+  margin-top: 3px;
+  color: var(--landing-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.event-perks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid var(--landing-line);
+  border-bottom: 1px solid var(--landing-line);
+}
+.event-perks article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  padding: 28px clamp(20px, 3vw, 38px);
+}
+.event-perks article + article {
+  border-left: 1px solid var(--landing-line);
+}
+.event-perks svg,
+.event-information-block h3 svg {
+  width: 22px;
+  height: 22px;
+  color: var(--landing-gold);
+  stroke-width: 1.6;
+}
+.event-perks p {
+  color: var(--landing-gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.event-perks h3 {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f5f5f0;
+}
+.event-perks span {
+  display: block;
+  margin-top: 6px;
+  color: var(--landing-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.event-logistics {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(28px, 5vw, 72px);
+  margin-top: clamp(54px, 7vw, 88px);
+}
+.event-information-block {
+  min-width: 0;
+}
+.event-information-block h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgb(232 192 76 / 32%);
+  color: var(--landing-gold);
+  font-family: var(--font-display);
+  font-size: clamp(25px, 2.4vw, 34px);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.event-information-block ul {
+  display: grid;
+  gap: 0;
+}
+.event-information-block li {
+  position: relative;
+  padding: 18px 0 18px 22px;
+  border-bottom: 1px solid var(--landing-line);
+  color: var(--landing-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.event-information-block li::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 1px;
+  width: 5px;
+  height: 5px;
+  background: var(--landing-gold);
+  transform: rotate(45deg);
 }
 .location-panel h2 {
   font-size: clamp(4rem, 8vw, 7rem);
@@ -858,6 +988,11 @@ html {
     font-size: 9px;
     gap: 7px;
   }
+  .header-access.gold-button {
+    min-height: 38px;
+    padding: 9px 12px;
+    font-size: 9px;
+  }
   .header-access svg {
     width: 13px;
     height: 13px;
@@ -985,7 +1120,7 @@ html {
     align-self: center;
   }
   .authority-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
   .authority-stat {
@@ -1037,6 +1172,28 @@ html {
   }
   .location-panel > .grid {
     margin-top: 28px;
+  }
+  .event-perks {
+    grid-template-columns: 1fr;
+    margin: 24px 24px 0;
+  }
+  .event-perks article {
+    padding: 24px 0;
+  }
+  .event-perks article + article {
+    border-top: 1px solid var(--landing-line);
+    border-left: 0;
+  }
+  .event-logistics {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin: 54px 24px 0;
+  }
+  .event-information-block h3 {
+    font-size: 27px;
+  }
+  .event-information-block li {
+    font-size: 14px;
   }
   #tipos-de-acesso {
     padding-top: 0;
@@ -1172,9 +1329,11 @@ html {
 }
 
 .cinematic-hero {
-  --hero-enter-y: 25px;
+  --hero-enter-y: 14px;
   --hero-scenery-opacity: 1;
+  --hero-scenery-start-opacity: 0.8;
   --hero-lion-opacity: 0.065;
+  --hero-lion-start-opacity: 0.03;
   --hero-scene-x: 0px;
   --hero-scene-y: 0px;
   --hero-light-x: 0px;
@@ -1207,35 +1366,35 @@ html {
   transform: translate3d(var(--hero-scene-x), var(--hero-scene-y), 0) scale(1.012);
 }
 .hero-scenery img {
-  animation: hero-atmosphere-enter 1200ms var(--landing-ease) backwards;
+  animation: hero-atmosphere-enter 650ms var(--landing-ease) backwards;
 }
 .hero-light {
   transform: translate3d(var(--hero-light-x), var(--hero-light-y), 0) scale(1.015);
   animation:
-    hero-light-enter 1250ms 40ms var(--landing-ease) backwards,
-    stage-light 18s 1250ms ease-in-out infinite alternate;
+    hero-light-enter 720ms var(--landing-ease) backwards,
+    stage-light 18s 720ms ease-in-out infinite alternate;
 }
 .hero-lion {
   transform: translate3d(var(--hero-lion-x), var(--hero-lion-y), 0) scale(1);
-  animation: hero-lion-enter 1050ms 260ms var(--landing-ease) backwards;
+  animation: hero-lion-enter 700ms 60ms var(--landing-ease) backwards;
 }
 .hero-person {
   transform: translate3d(calc(-50% + var(--hero-person-x)), var(--hero-person-y), 0);
 }
 .hero-person img {
-  animation: hero-person-enter 980ms 110ms var(--landing-ease) backwards;
+  animation: hero-person-enter 620ms var(--landing-ease) backwards;
 }
 .hero-editorial {
-  --editorial-enter-x: -12px;
-  animation: hero-editorial-enter 720ms 500ms var(--landing-ease) backwards;
+  --editorial-enter-x: -7px;
+  animation: hero-editorial-enter 520ms 140ms var(--landing-ease) backwards;
 }
 .hero-editorial-right {
-  --editorial-enter-x: 12px;
-  animation-delay: 620ms;
+  --editorial-enter-x: 7px;
+  animation-delay: 180ms;
 }
 .hero-brand {
   isolation: isolate;
-  animation: hero-brand-enter 760ms 500ms var(--landing-ease) backwards;
+  animation: hero-brand-enter 520ms 80ms var(--landing-ease) backwards;
 }
 .hero-brand::after {
   content: "";
@@ -1247,19 +1406,19 @@ html {
   opacity: 0;
   background: linear-gradient(90deg, transparent, rgb(255 229 144 / 24%), transparent);
   transform: translateX(-140%) skewX(-16deg);
-  animation: hero-logo-sweep 860ms 980ms var(--landing-ease);
+  animation: hero-logo-sweep 700ms 420ms var(--landing-ease);
 }
 .hero-tagline {
-  animation: hero-tagline-enter 600ms 720ms var(--landing-ease) backwards;
+  animation: hero-tagline-enter 420ms 120ms var(--landing-ease) backwards;
 }
 .hero-cta {
-  animation: hero-cta-enter 520ms 880ms var(--landing-ease) backwards;
+  animation: hero-cta-enter 420ms 160ms var(--landing-ease) backwards;
 }
 .hero-facts {
-  animation: hero-support-enter 560ms 1000ms var(--landing-ease) backwards;
+  animation: hero-support-enter 400ms 210ms var(--landing-ease) backwards;
 }
 .hero-details {
-  animation: hero-support-enter 520ms 1120ms var(--landing-ease) backwards;
+  animation: hero-support-enter 380ms 250ms var(--landing-ease) backwards;
 }
 
 .section-entered .authority-portrait::before {
@@ -1298,9 +1457,9 @@ html {
 }
 @keyframes hero-atmosphere-enter {
   from {
-    opacity: calc(var(--hero-scenery-opacity) * 0.45);
-    transform: scale(1.03);
-    filter: saturate(0.88);
+    opacity: var(--hero-scenery-start-opacity);
+    transform: scale(1.015);
+    filter: saturate(0.94);
   }
   to {
     opacity: var(--hero-scenery-opacity);
@@ -1318,9 +1477,9 @@ html {
 }
 @keyframes hero-person-enter {
   from {
-    opacity: 0;
-    transform: translateY(var(--hero-enter-y)) scale(1.025);
-    filter: blur(3px);
+    opacity: 0.72;
+    transform: translateY(var(--hero-enter-y)) scale(1.012);
+    filter: blur(1.5px);
   }
   to {
     opacity: 1;
@@ -1330,8 +1489,8 @@ html {
 }
 @keyframes hero-lion-enter {
   from {
-    opacity: 0;
-    transform: translate3d(var(--hero-lion-x), var(--hero-lion-y), 0) scale(0.96);
+    opacity: var(--hero-lion-start-opacity);
+    transform: translate3d(var(--hero-lion-x), var(--hero-lion-y), 0) scale(0.98);
   }
   to {
     opacity: var(--hero-lion-opacity);
@@ -1340,8 +1499,8 @@ html {
 }
 @keyframes hero-brand-enter {
   from {
-    opacity: 0;
-    transform: translateY(15px) scale(0.97);
+    opacity: 0.68;
+    transform: translateY(8px) scale(0.985);
   }
   to {
     opacity: 1;
@@ -1366,9 +1525,9 @@ html {
 }
 @keyframes hero-tagline-enter {
   from {
-    opacity: 0;
-    transform: translateY(8px);
-    letter-spacing: 0.42em;
+    opacity: 0.58;
+    transform: translateY(5px);
+    letter-spacing: 0.38em;
   }
   to {
     opacity: 1;
@@ -1378,8 +1537,8 @@ html {
 }
 @keyframes hero-cta-enter {
   from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
+    opacity: 0.72;
+    transform: translateY(6px) scale(0.99);
   }
   to {
     opacity: 1;
@@ -1388,8 +1547,8 @@ html {
 }
 @keyframes hero-support-enter {
   from {
-    opacity: 0;
-    transform: translateY(8px);
+    opacity: 0.58;
+    transform: translateY(5px);
   }
   to {
     opacity: 1;
@@ -1398,7 +1557,7 @@ html {
 }
 @keyframes hero-editorial-enter {
   from {
-    opacity: 0;
+    opacity: 0.4;
     transform: translateX(var(--editorial-enter-x));
   }
   to {
@@ -1432,9 +1591,11 @@ html {
 
 @media (max-width: 600px) {
   .cinematic-hero {
-    --hero-enter-y: 18px;
+    --hero-enter-y: 10px;
     --hero-scenery-opacity: 0.72;
+    --hero-scenery-start-opacity: 0.58;
     --hero-lion-opacity: 0.045;
+    --hero-lion-start-opacity: 0.02;
   }
   .hero-tagline {
     animation-name: hero-tagline-enter-mobile;
@@ -1448,9 +1609,9 @@ html {
 
 @keyframes hero-tagline-enter-mobile {
   from {
-    opacity: 0;
-    transform: translateY(7px);
-    letter-spacing: 0.23em;
+    opacity: 0.58;
+    transform: translateY(4px);
+    letter-spacing: 0.21em;
   }
   to {
     opacity: 1;

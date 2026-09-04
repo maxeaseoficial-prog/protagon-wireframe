@@ -26,7 +26,7 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <a href="#tipos-de-acesso" className="header-access">
+        <a href="#tipos-de-acesso" className="header-access gold-button">
           Garantir acesso <ArrowUpRight aria-hidden="true" />
         </a>
         <details

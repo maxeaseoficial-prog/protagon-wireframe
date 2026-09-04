@@ -16,23 +16,32 @@ export function Hero() {
   return (
     <section ref={heroRef} id="top" className="cinematic-hero" aria-labelledby="hero-title">
       <div className="hero-scenery" aria-hidden="true">
-        <img
-          src="/uploads/cuiaba-atmosphere.jpg"
-          alt=""
-          width="1672"
-          height="941"
-          loading="eager"
-        />
+        <picture>
+          <source srcSet="/uploads/cuiaba-atmosphere.avif" type="image/avif" />
+          <img
+            src="/uploads/cuiaba-atmosphere.jpg"
+            alt=""
+            width="1672"
+            height="941"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div className="hero-light" aria-hidden="true" />
-      <img
-        className="hero-lion"
-        src="/uploads/1.png"
-        alt=""
-        aria-hidden="true"
-        width="1024"
-        height="1024"
-      />
+      <picture className="hero-lion" aria-hidden="true">
+        <source srcSet="/uploads/protagon-lion.avif" type="image/avif" />
+        <img
+          src="/uploads/1.png"
+          alt=""
+          width="1024"
+          height="1024"
+          loading="eager"
+          fetchPriority="low"
+          decoding="async"
+        />
+      </picture>
       <div className="hero-editorial hero-editorial-left" aria-hidden="true">
         <p>
           Pessoas reais.
@@ -66,14 +75,18 @@ export function Hero() {
         </p>
       </div>
       <div className="hero-person">
-        <img
-          src="/uploads/Design_sem_nome_2_.png"
-          alt="Wendell Carvalho, palestrante do Novo Protagon Cuiabá"
-          width="1080"
-          height="1350"
-          loading="eager"
-          fetchPriority="high"
-        />
+        <picture>
+          <source srcSet="/uploads/hero-wendell.avif" type="image/avif" />
+          <img
+            src="/uploads/Design_sem_nome_2_.png"
+            alt="Wendell Carvalho, palestrante do Novo Protagon Cuiabá"
+            width="1080"
+            height="1350"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div className="hero-content">
         <h1 id="hero-title" className="sr-only">
@@ -96,7 +109,7 @@ export function Hero() {
         </ul>
         <div className="hero-details">
           <p>
-            24, 25 e 26 de outubro de 2025 <span>· 3 dias de imersão</span>
+            04 a 06 de setembro <span>· 3 dias de imersão</span>
           </p>
           <a href="#vsl">
             <Play aria-hidden="true" /> Assistir ao vídeo

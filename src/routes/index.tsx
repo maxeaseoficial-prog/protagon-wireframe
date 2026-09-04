@@ -17,7 +17,7 @@ import {
   Footer,
 } from "@/components/landing/Sections";
 
-const title = "Novo Protagon Cuiabá — 24, 25 e 26 de Outubro de 2025";
+const title = "Novo Protagon Cuiabá — 04 a 06 de setembro";
 const description =
   "Evento presencial Novo Protagon em Cuiabá - MT: três dias de imersão com Wendell Carvalho. Vagas limitadas.";
 
@@ -30,6 +30,20 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "preload",
+        href: "/uploads/hero-wendell.avif",
+        as: "image",
+        type: "image/avif",
+      },
+      {
+        rel: "preload",
+        href: "/uploads/cuiaba-atmosphere.avif",
+        as: "image",
+        type: "image/avif",
+      },
     ],
   }),
   component: Index,
