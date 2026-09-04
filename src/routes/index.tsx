@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/landing/Hero";
 import { Header } from "@/components/landing/Header";
 import {
-  Hero,
   VslSection,
   EventExperience,
   AboutWendell,
@@ -35,9 +35,9 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground">
+    <div className="landing-page min-h-screen w-full bg-background text-foreground">
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <VslSection />
         <EventExperience />

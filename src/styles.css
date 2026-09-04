@@ -2,6 +2,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "./components/landing/landing.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -68,12 +69,12 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.16 0.014 155);
+  --radius: 0.375rem;
+  --background: oklch(0.137 0.024 157);
   --foreground: oklch(0.96 0.008 85);
-  --card: oklch(0.19 0.016 155);
+  --card: oklch(0.181 0.025 157);
   --card-foreground: oklch(0.96 0.008 85);
-  --popover: oklch(0.19 0.016 155);
+  --popover: oklch(0.181 0.025 157);
   --popover-foreground: oklch(0.96 0.008 85);
   --primary: oklch(0.79 0.14 87);
   --primary-foreground: oklch(0.21 0.05 80);
@@ -93,7 +94,7 @@
   --chart-3: oklch(0.72 0.14 262);
   --chart-4: oklch(0.6 0.1 35);
   --chart-5: oklch(0.55 0.1 142);
-  --sidebar: oklch(0.19 0.016 155);
+  --sidebar: oklch(0.181 0.025 157);
   --sidebar-foreground: oklch(0.96 0.008 85);
   --sidebar-primary: oklch(0.79 0.14 87);
   --sidebar-primary-foreground: oklch(0.21 0.05 80);
@@ -104,12 +105,12 @@
 }
 
 .dark {
-  --radius: 0.625rem;
-  --background: oklch(0.16 0.014 155);
+  --radius: 0.375rem;
+  --background: oklch(0.137 0.024 157);
   --foreground: oklch(0.96 0.008 85);
-  --card: oklch(0.19 0.016 155);
+  --card: oklch(0.181 0.025 157);
   --card-foreground: oklch(0.96 0.008 85);
-  --popover: oklch(0.19 0.016 155);
+  --popover: oklch(0.181 0.025 157);
   --popover-foreground: oklch(0.96 0.008 85);
   --primary: oklch(0.79 0.14 87);
   --primary-foreground: oklch(0.21 0.05 80);
@@ -129,7 +130,7 @@
   --chart-3: oklch(0.72 0.14 262);
   --chart-4: oklch(0.6 0.1 35);
   --chart-5: oklch(0.55 0.1 142);
-  --sidebar: oklch(0.19 0.016 155);
+  --sidebar: oklch(0.181 0.025 157);
   --sidebar-foreground: oklch(0.96 0.008 85);
   --sidebar-primary: oklch(0.79 0.14 87);
   --sidebar-primary-foreground: oklch(0.21 0.05 80);
@@ -152,7 +153,6 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -167,18 +167,9 @@
   }
 }
 
+/* Keep incumbent emphasis classes while using the restrained gold token. */
 @utility text-gold-gradient {
-  background-image: linear-gradient(
-    105deg,
-    #f7e8b1 0%,
-    #eccc7a 28%,
-    #c59a2f 52%,
-    #f2df9e 74%,
-    #d4af37 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--primary);
 }
 
 @utility animate-fade-up {

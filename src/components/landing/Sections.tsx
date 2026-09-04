@@ -1,15 +1,13 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import { BrandMark } from "./BrandMark";
 import {
-  ArrowRight,
   BookOpen,
   CalendarDays,
   Check,
   Crown,
   Flame,
   MapPin,
-  Play,
   ShieldCheck,
-  Sparkles,
   Users,
   Wrench,
 } from "lucide-react";
@@ -30,120 +28,68 @@ function Section({
   className?: string;
   children: ReactNode;
 }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          section.classList.add("section-entered");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.08 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section
-      id={id}
-      className={`relative w-full overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8 ${className}`}
-    >
+    <section ref={sectionRef} id={id} className={`landing-section ${className}`}>
       {children}
     </section>
   );
 }
 
-function Container({
-  className = "",
-  children,
-}: {
-  className?: string;
-  children: ReactNode;
-}) {
+function Container({ className = "", children }: { className?: string; children: ReactNode }) {
   return (
-    <div className={`mx-auto w-full max-w-7xl ${className}`.trim()}>{children}</div>
+    <div className={`section-container mx-auto w-full max-w-7xl ${className}`.trim()}>
+      {children}
+    </div>
   );
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-4 flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.42em] text-primary">
+    <p className="section-eyebrow mb-4 flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.42em] text-primary">
       <span aria-hidden className="h-px w-8 shrink-0 bg-primary/70" />
       <span>{children}</span>
     </p>
   );
 }
 
-const heroChips = [
-  { icon: CalendarDays, label: "24, 25 e 26 de Out. de 2025" },
-  { icon: MapPin, label: "Cuiabá - MT" },
-  { icon: Users, label: "Evento Presencial" },
-  { icon: Sparkles, label: "Vagas Limitadas" },
-];
-
-export function Hero() {
-  return (
-    <section id="top" className="relative flex min-h-[100svh] w-full flex-col items-center justify-end overflow-hidden pt-20">
-      <div aria-hidden className="absolute inset-0 z-0">
-        <img
-          src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_26_17.png"
-          alt="Novo Protagon Cuiabá — Construa sua vida épica"
-          className="h-full w-full object-cover object-[center_20%]"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_20%,rgba(6,78,59,0.3)_75%,var(--color-background)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-      </div>
-
-      <Container className="relative z-10 flex w-full flex-col items-center px-4 pb-12 text-center sm:pb-20">
-        <h1 className="sr-only">
-          Novo Protagon Cuiabá — Construa sua vida épica
-        </h1>
-
-        <p className="animate-fade-up text-[11px] font-extrabold uppercase tracking-[0.5em] text-gold-gradient drop-shadow-md sm:text-xs">
-          Evento presencial · 3 dias de imersão
-        </p>
-
-        <ul className="animate-fade-up mt-8 flex flex-wrap justify-center gap-3 sm:gap-5" style={{ animationDelay: "100ms" }}>
-          {heroChips.map((ch) => (
-            <li
-              key={ch.label}
-              className="flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-5 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-primary/50 hover:bg-black/60"
-            >
-              <ch.icon className="h-4 w-4 shrink-0 text-primary" />
-              <span className="text-xs font-semibold tracking-wide text-foreground/90 sm:text-sm">
-                {ch.label}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="animate-fade-up mt-10 w-full max-w-sm sm:max-w-md" style={{ animationDelay: "200ms" }}>
-          <Button
-            asChild
-            size="lg"
-            className="h-14 w-full rounded-xl border border-primary/60 bg-primary px-8 text-[14px] font-extrabold uppercase tracking-[0.2em] text-primary-foreground shadow-[0_0_40px_-10px_rgba(212,175,55,0.7)] transition-all duration-300 hover:scale-[1.02] hover:bg-primary/95"
-          >
-            <a href="#tipos-de-acesso">Garantir acesso agora</a>
-          </Button>
-          <a
-            href="#vsl"
-            className="group mt-6 inline-flex items-center justify-center gap-2 text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/80 transition-colors hover:text-primary"
-          >
-            <Play className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-            Assistir ao vídeo
-          </a>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
 export function VslSection() {
   return (
-    <Section id="vsl" className="bg-[radial-gradient(60%_50%_at_50%_0%,rgba(16,185,129,0.07),transparent_70%)]">
+    <Section
+      id="vsl"
+      className="bg-[radial-gradient(60%_50%_at_50%_0%,rgba(16,185,129,0.07),transparent_70%)]"
+    >
       <Container>
         <p className="mx-auto max-w-3xl text-center text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
           A experiência começa aqui
         </p>
         <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl uppercase leading-tight tracking-wide text-white sm:text-5xl">
-          Assista ao vídeo e descubra por que o{" "}
-          <span className="text-gold-gradient">Protagon</span> vai transformar a sua vida
+          Assista ao vídeo e descubra por que o <span className="text-gold-gradient">Protagon</span>{" "}
+          vai transformar a sua vida
         </h2>
 
-        <div className="animate-scale-in group relative mx-auto mt-10 aspect-video w-full max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl shadow-black/60">
+        <div className="video-frame relative mx-auto mt-10 aspect-video w-full max-w-5xl overflow-hidden">
           <iframe
             className="absolute inset-0 h-full w-full border-0"
             src="https://www.youtube.com/embed/s40NIz9b6jw?si=X2y9_X3tD-yF9Sxb"
             title="Assista ao vídeo e descubra por que o Protagon vai transformar a sua vida"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            loading="lazy"
             allowFullScreen
           />
         </div>
@@ -166,20 +112,17 @@ export function EventExperience() {
         <div>
           <Eyebrow>O evento</Eyebrow>
           <h2 className="font-display text-3xl uppercase leading-[1.05] tracking-wide text-white sm:text-5xl">
-            Uma <span className="text-gold-gradient">experiência</span> presenciaL e transformadora
+            Uma <span className="text-gold-gradient">experiência</span> presencial e transformadora
           </h2>
           <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-            Três dias de imersão intensa com Wendell Carvalho e Karina Peloi para você destravar
-            seu potencial, desenvolver sua mentalidade e construir um novo nível de vida.
+            Três dias de imersão intensa com Wendell Carvalho e Karina Peloi para você destravar seu
+            potencial, desenvolver sua mentalidade e construir um novo nível de vida.
           </p>
 
           <ul className="mt-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-2">
             {experienceHighlights.map((item) => (
-              <li
-                key={item.label}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30"
-              >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <li key={item.label} className="experience-highlight">
+                <span className="text-primary">
                   <item.icon className="h-4 w-4" />
                 </span>
                 <span className="text-sm font-medium text-foreground/90">{item.label}</span>
@@ -188,31 +131,22 @@ export function EventExperience() {
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <div aria-hidden className="absolute -inset-4 rounded-[2.25rem] bg-gradient-to-bl from-emerald-950/80 via-transparent to-primary/15 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black shadow-2xl shadow-black/70">
-            <img
-              src="/uploads/1.png"
-              alt="Público em imersão presencial do Novo Protagon"
-              className="aspect-[4/3] w-full object-cover opacity-95"
-              loading="lazy"
-            />
-            <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-7">
-              <div>
-                <p className="font-display text-2xl leading-none tracking-[0.14em] text-white sm:text-3xl">
-                  Imersão ao vivo
-                </p>
-                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.34em] text-muted-foreground">
-                  Conteúdo · presença · energia
-                </p>
-              </div>
-              <span className="rounded-full bg-primary px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.22em] text-primary-foreground">
-                24 a 26 out
-              </span>
+        <figure className="event-art">
+          <img
+            src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_26_17.png"
+            alt="Arte do Novo Protagon Cuiabá com Wendell Carvalho, Karina Peloi e cenas da experiência"
+            width="1920"
+            height="819"
+            loading="lazy"
+          />
+          <figcaption>
+            <div>
+              <p>Imersão ao vivo</p>
+              <span>Conteúdo · presença · energia</span>
             </div>
-          </div>
-        </div>
+            <span>24 a 26 out</span>
+          </figcaption>
+        </figure>
       </Container>
     </Section>
   );
@@ -226,31 +160,26 @@ const stats: [string, string][] = [
 
 export function AboutWendell() {
   return (
-    <Section id="wendell" className="bg-[radial-gradient(50%_60%_at_10%_50%,rgba(6,78,59,0.18),transparent_70%)]">
+    <Section
+      id="wendell"
+      className="bg-[radial-gradient(50%_60%_at_10%_50%,rgba(6,78,59,0.18),transparent_70%)]"
+    >
       <Container className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div aria-hidden className="absolute -inset-4 rounded-[2.25rem] bg-gradient-to-tr from-primary/15 via-transparent to-emerald-950/80 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/50 p-2 shadow-2xl shadow-black/70 backdrop-blur-sm">
-            <div className="relative overflow-hidden rounded-[1.25rem]">
-              <img
-                src="/uploads/Design_sem_nome_2_.png"
-                alt="Retrato de Wendell Carvalho"
-                className="aspect-[4/5] w-full object-cover"
-                loading="lazy"
-              />
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent" />
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(212,175,55,0.16)_0%,transparent_36%)]" />
-              <div className="absolute inset-x-0 bottom-0 p-5">
-                <p className="font-display text-2xl leading-none tracking-[0.12em] text-white sm:text-3xl">
-                  WENDELL <span className="text-gold-gradient">CARVALHO</span>
-                </p>
-                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.34em] text-muted-foreground">
-                  Palestrante e mentor
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <figure className="authority-portrait">
+          <img
+            src="/uploads/Design_sem_nome.png"
+            alt="Retrato de Wendell Carvalho"
+            width="1080"
+            height="1350"
+            loading="lazy"
+          />
+          <figcaption>
+            <p>
+              Wendell <span>Carvalho</span>
+            </p>
+            <span>Palestrante e mentor</span>
+          </figcaption>
+        </figure>
 
         <div>
           <Eyebrow>Sobre</Eyebrow>
@@ -261,12 +190,9 @@ export function AboutWendell() {
             [Espaço reservado para o texto biográfico do Wendell Carvalho.]
           </p>
 
-          <div className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="authority-stats mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {stats.map(([number, label]) => (
-              <div
-                key={number + label}
-                className="rounded-2xl border border-white/10 bg-card/60 p-5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30"
-              >
+              <div key={number + label} className="authority-stat">
                 <p className="font-display text-3xl leading-none text-gold-gradient sm:text-4xl">
                   {number}
                 </p>
@@ -293,7 +219,9 @@ export function AudienceSection() {
   return (
     <Section id="para-quem">
       <Container className="max-w-3xl text-center">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">Para quem é?</p>
+        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+          Para quem é?
+        </p>
         <h2 className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
           Para quem é o <span className="text-gold-gradient">Protagon</span>?
         </h2>
@@ -304,15 +232,15 @@ export function AudienceSection() {
 
       <Container className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {audience.map((item, i) => (
-          <div
-            key={item}
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-card/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card"
-          >
-            <p className="font-display text-5xl leading-none text-primary/15 transition-colors duration-300 group-hover:text-primary/35">
+          <div key={item} className="audience-item">
+            <p aria-hidden="true" className="audience-number">
               {String(i + 1).padStart(2, "0")}
             </p>
             <p className="mt-6 text-sm font-semibold leading-6 text-foreground/90">{item}</p>
-            <span aria-hidden className="mt-6 block h-px w-8 bg-primary/50 transition-all duration-500 group-hover:w-full" />
+            <span
+              aria-hidden
+              className="mt-6 block h-px w-8 bg-primary/50 transition-all duration-500 group-hover:w-full"
+            />
           </div>
         ))}
       </Container>
@@ -322,10 +250,25 @@ export function AudienceSection() {
 
 export function LocationSection() {
   return (
-    <Section id="local-e-data" className="bg-[radial-gradient(50%_70%_at_90%_0%,rgba(212,175,55,0.08),transparent_70%)]">
-      <Container className="max-w-5xl">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-card/50 px-6 py-14 text-center shadow-2xl shadow-black/50 sm:px-12 sm:py-20">
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_0%,rgba(16,185,129,0.12),transparent_65%)]" />
+    <Section
+      id="local-e-data"
+      className="bg-[radial-gradient(50%_70%_at_90%_0%,rgba(212,175,55,0.08),transparent_70%)]"
+    >
+      <Container className="max-w-7xl">
+        <div className="location-panel">
+          <img
+            className="location-scenery"
+            src="/uploads/cuiaba-atmosphere.jpg"
+            alt=""
+            aria-hidden="true"
+            width="1672"
+            height="941"
+            loading="lazy"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_0%,rgba(16,185,129,0.12),transparent_65%)]"
+          />
           <Eyebrow>Local e data</Eyebrow>
           <h2 className="font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
             Cuiabá <span className="text-gold-gradient">·</span> MT
@@ -337,15 +280,20 @@ export function LocationSection() {
           <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
               <MapPin className="h-5 w-5 shrink-0 text-primary" />
-              <span className="text-sm font-medium text-foreground/90">Local a ser confirmado em breve</span>
+              <span className="text-sm font-medium text-foreground/90">
+                Local a ser confirmado em breve
+              </span>
             </div>
             <div className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
               <CalendarDays className="h-5 w-5 shrink-0 text-primary" />
-              <span className="text-sm font-medium text-foreground/90">Evento presencial · vagas limitadas</span>
+              <span className="text-sm font-medium text-foreground/90">
+                Evento presencial · vagas limitadas
+              </span>
             </div>
           </div>
 
           <Button
+            data-landing-button
             asChild
             variant="outline"
             className="mt-8 h-11 rounded-xl border-white/20 bg-transparent px-7 text-[11px] font-extrabold uppercase tracking-[0.2em] text-white transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
@@ -389,8 +337,9 @@ export function AccessTypes() {
   return (
     <Section id="tipos-de-acesso">
       <Container className="max-w-3xl text-center">
-        <Eyebrow className="justify-center">{undefined}</Eyebrow>
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">Tipos de acesso</p>
+        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+          Tipos de acesso
+        </p>
         <h2 className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
           Escolha o seu <span className="text-gold-gradient">nível</span> de experiência
         </h2>
@@ -400,17 +349,11 @@ export function AccessTypes() {
         {tiers.map((t) => (
           <div
             key={t.name}
-            className={`relative flex flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-500 hover:-translate-y-1 sm:p-8 ${
-              t.featured
-                ? "border-primary/50 bg-gradient-to-b from-primary/[0.16] via-card to-card shadow-[0_18px_60px_-24px_rgba(212,175,55,0.5)]"
-                : "border-white/10 bg-card/50 hover:border-white/25 hover:bg-card/80"
+            className={`access-card ${
+              t.featured ? "access-card-featured" : "access-card-standard"
             }`}
           >
-            {t.badge && (
-              <span className="absolute right-5 top-5 rounded-md bg-gradient-to-r from-yellow-200 via-[#d4af37] to-[#b8860b] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.18em] text-black shadow-lg shadow-black/30">
-                {t.badge}
-              </span>
-            )}
+            {t.badge && <span className="access-badge">{t.badge}</span>}
 
             <h3 className="flex items-center gap-2 font-display text-xl uppercase tracking-[0.14em] text-white sm:text-2xl">
               {t.name.includes("Diamond") && <Crown className="h-5 w-5 text-primary" />}
@@ -429,6 +372,7 @@ export function AccessTypes() {
             </ul>
 
             <Button
+              data-landing-button
               asChild
               className={`mt-8 h-11 w-full rounded-xl px-6 text-[11px] font-extrabold uppercase tracking-[0.18em] ${
                 t.featured
@@ -447,7 +391,10 @@ export function AccessTypes() {
 
 export function GuaranteeSection() {
   return (
-    <Section id="garantia" className="bg-[radial-gradient(50%_70%_at_0%_50%,rgba(6,78,59,0.16),transparent_70%)]">
+    <Section
+      id="garantia"
+      className="bg-[radial-gradient(50%_70%_at_0%_50%,rgba(6,78,59,0.16),transparent_70%)]"
+    >
       <Container className="grid items-center gap-14 lg:grid-cols-[1.4fr_0.8fr]">
         <div>
           <Eyebrow>Sem risco</Eyebrow>
@@ -461,14 +408,20 @@ export function GuaranteeSection() {
           </p>
         </div>
 
-        <div className="relative mx-auto aspect-square w-52 sm:w-64">
-          <div aria-hidden className="animate-spin-slow absolute inset-0 rounded-full border border-dashed border-primary/50" />
-          <div className="absolute inset-0 animate-scale-in flex items-center justify-center">
+        <div className="guarantee-seal relative mx-auto aspect-square w-52 sm:w-64">
+          <div aria-hidden className="absolute inset-0 rounded-full border border-primary/30" />
+          <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex h-[78%] w-[78%] flex-col items-center justify-center rounded-full border border-primary/25 bg-gradient-to-b from-emerald-950/40 to-card text-center shadow-[inset_0_0_40px_rgba(0,0,0,0.5)]">
               <ShieldCheck className="h-9 w-9 text-primary sm:h-11 sm:w-11" />
-              <p className="mt-2 font-display text-lg leading-none tracking-[0.14em] text-white sm:text-xl">GARANTIA</p>
-              <p className="font-display text-lg leading-none tracking-[0.14em] text-primary sm:text-xl">ÉPICA</p>
-              <p className="mt-2 px-4 text-[8px] font-bold uppercase tracking-[0.3em] text-muted-foreground">Zero risco</p>
+              <p className="mt-2 font-display text-lg leading-none tracking-[0.14em] text-white sm:text-xl">
+                GARANTIA
+              </p>
+              <p className="font-display text-lg leading-none tracking-[0.14em] text-primary sm:text-xl">
+                ÉPICA
+              </p>
+              <p className="mt-2 px-4 text-[8px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
+                Zero risco
+              </p>
             </div>
           </div>
         </div>
@@ -480,7 +433,7 @@ export function GuaranteeSection() {
 const faq: [string, string][] = [
   ["O que é exatamente o Protagon?", "Resposta a ser definida."],
   ["Qual a diferença entre os tipos de acesso?", "Resposta a ser definida."],
-  ["O que significa \"Pague 1, Leve 2\"?", "Resposta a ser definida."],
+  ['O que significa "Pague 1, Leve 2"?', "Resposta a ser definida."],
   ["Quais são as formas de pagamento?", "Resposta a ser definida."],
   ["Como funciona a garantia?", "Resposta a ser definida."],
   ["Existe alguma restrição de participação?", "Resposta a ser definida."],
@@ -492,7 +445,9 @@ export function FaqSection() {
     <Section id="faq">
       <Container className="max-w-4xl">
         <div className="text-center">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">Dúvidas</p>
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+            Dúvidas
+          </p>
           <h2 className="mt-4 font-display text-3xl uppercase tracking-wide text-white sm:text-5xl">
             Perguntas <span className="text-gold-gradient">frequentes</span>
           </h2>
@@ -500,13 +455,8 @@ export function FaqSection() {
 
         <Accordion type="single" collapsible className="mt-12 w-full">
           {faq.map(([q, a], index) => (
-            <AccordionItem
-              key={q}
-              value={`item-${index}`}
-              className="bg-white/[0.02] transition-colors duration-300 first:rounded-t-2xl last:rounded-b-2xl data-[state=open]:bg-white/[0.04]"
-            >
+            <AccordionItem key={q} value={`item-${index}`} className="faq-item">
               <AccordionTrigger className="px-1 font-display text-left text-base uppercase tracking-[0.08em] text-white transition-colors sm:px-3 sm:text-lg [&>svg]:text-primary">
-                <span className="mr-3 text-primary">{String(index + 1).padStart(2, "0")}</span>
                 <span>{q}</span>
               </AccordionTrigger>
               <AccordionContent className="px-1 pb-6 pt-1 text-sm leading-7 text-muted-foreground sm:px-3 sm:text-base">
@@ -522,11 +472,17 @@ export function FaqSection() {
 
 export function JourneySection() {
   return (
-    <Section id="jornada" className="bg-[radial-gradient(60%_70%_at_50%_100%,rgba(16,185,129,0.08),transparent_70%)]">
+    <Section
+      id="jornada"
+      className="bg-[radial-gradient(60%_70%_at_50%_100%,rgba(16,185,129,0.08),transparent_70%)]"
+    >
       <Container className="max-w-4xl text-center">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">Continue sua jornada</p>
+        <p className="text-[11px] font-extrabold uppercase tracking-[0.5em] text-primary">
+          Continue sua jornada
+        </p>
         <h2 className="mt-4 font-display text-3xl uppercase leading-tight tracking-wide text-white sm:text-5xl">
-          Quer ver outros <span className="text-gold-gradient">Protagons</span> ou explorar mais cursos do Wendell?
+          Quer ver outros <span className="text-gold-gradient">Protagons</span> ou explorar mais
+          cursos do Wendell?
         </h2>
         <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
           Se Cuiabá não está no seu mapa neste momento, confira a agenda completa de eventos em
@@ -534,6 +490,7 @@ export function JourneySection() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button
+            data-landing-button
             asChild
             variant="outline"
             className="h-11 w-full rounded-xl border-white/15 bg-transparent px-6 text-[11px] font-extrabold uppercase tracking-[0.18em] text-white transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary sm:w-auto"
@@ -541,6 +498,7 @@ export function JourneySection() {
             <a href="#">Ver agenda de outros eventos</a>
           </Button>
           <Button
+            data-landing-button
             asChild
             variant="outline"
             className="h-11 w-full rounded-xl border-white/15 bg-transparent px-6 text-[11px] font-extrabold uppercase tracking-[0.18em] text-white transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary sm:w-auto"
@@ -557,9 +515,15 @@ export function FinalCta() {
   return (
     <Section id="cta-final" className="pb-24 sm:pb-32">
       <Container>
-        <div className="relative overflow-hidden rounded-[2rem] border border-primary/25 bg-card/60 px-6 py-16 text-center shadow-2xl shadow-black/60 sm:px-12 sm:py-24">
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_80%_at_50%_0%,rgba(212,175,55,0.18),transparent_65%)]" />
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_110%,rgba(16,185,129,0.16),transparent_65%)]" />
+        <div className="final-panel">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_80%_at_50%_0%,rgba(212,175,55,0.18),transparent_65%)]"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_110%,rgba(16,185,129,0.16),transparent_65%)]"
+          />
 
           <p className="relative text-[11px] font-extrabold uppercase tracking-[0.5em] text-muted-foreground">
             Sua vaga está esperando
@@ -575,9 +539,10 @@ export function FinalCta() {
 
           <div className="relative mx-auto mt-10 max-w-md">
             <Button
+              data-landing-button
               asChild
               size="lg"
-              className="animate-glow-pulse h-14 w-full rounded-xl border border-primary/60 bg-primary px-8 text-sm font-extrabold uppercase tracking-[0.2em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
+              className="gold-button h-14 w-full rounded-xl border border-primary/60 bg-primary px-8 text-sm font-extrabold uppercase tracking-[0.2em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
             >
               <a href="#tipos-de-acesso">Garantir acesso</a>
             </Button>
@@ -598,38 +563,77 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-2">
             <a href="#top" className="inline-block">
-              <span className="font-display text-2xl leading-none tracking-[0.2em] text-white">
-                NOVO <span className="text-gold-gradient">PROTAGON</span>
-              </span>
-              <span className="mt-2 block text-[10px] font-extrabold uppercase tracking-[0.5em] text-muted-foreground">
-                Cuiabá — MT
-              </span>
+              <BrandMark className="footer-brand" />
             </a>
             <p className="mt-5 max-w-sm text-sm leading-6 text-muted-foreground">
-              Uma experiência presencial de três dias para construir uma vida épica com
-              Wendell Carvalho.
+              Uma experiência presencial de três dias para construir uma vida épica com Wendell
+              Carvalho.
             </p>
           </div>
 
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-white">Navegação</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-white">
+              Navegação
+            </p>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              <li><a href="#o-evento" className="transition-colors hover:text-primary">O Evento</a></li>
-              <li><a href="#wendell" className="transition-colors hover:text-primary">Quem é o Wendell</a></li>
-              <li><a href="#tipos-de-acesso" className="transition-colors hover:text-primary">Tipos de Acesso</a></li>
-              <li><a href="#local-e-data" className="transition-colors hover:text-primary">Local e Data</a></li>
-              <li><a href="#faq" className="transition-colors hover:text-primary">FAQ</a></li>
+              <li>
+                <a href="#o-evento" className="transition-colors hover:text-primary">
+                  O Evento
+                </a>
+              </li>
+              <li>
+                <a href="#wendell" className="transition-colors hover:text-primary">
+                  Quem é o Wendell
+                </a>
+              </li>
+              <li>
+                <a href="#tipos-de-acesso" className="transition-colors hover:text-primary">
+                  Tipos de Acesso
+                </a>
+              </li>
+              <li>
+                <a href="#local-e-data" className="transition-colors hover:text-primary">
+                  Local e Data
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="transition-colors hover:text-primary">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-white">Links</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-white">
+              Links
+            </p>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="transition-colors hover:text-primary">Página Oficial</a></li>
-              <li><a href="#" className="transition-colors hover:text-primary">Acesso Executivo</a></li>
-              <li><a href="#" className="transition-colors hover:text-primary">Acesso Diamond</a></li>
-              <li><a href="#" className="transition-colors hover:text-primary">Outros Eventos</a></li>
-              <li><a href="#" className="transition-colors hover:text-primary">Outros Cursos</a></li>
+              <li>
+                <a href="#" className="transition-colors hover:text-primary">
+                  Página Oficial
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition-colors hover:text-primary">
+                  Acesso Executivo
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition-colors hover:text-primary">
+                  Acesso Diamond
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition-colors hover:text-primary">
+                  Outros Eventos
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition-colors hover:text-primary">
+                  Outros Cursos
+                </a>
+              </li>
             </ul>
           </div>
         </div>
