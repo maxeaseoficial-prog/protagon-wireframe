@@ -62,7 +62,7 @@ function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 const heroChips = [
-  { icon: CalendarDays, label: "24, 25 e 26 de Outubro de 2025" },
+  { icon: CalendarDays, label: "24, 25 e 26 de Out. de 2025" },
   { icon: MapPin, label: "Cuiabá - MT" },
   { icon: Users, label: "Evento Presencial" },
   { icon: Sparkles, label: "Vagas Limitadas" },
@@ -70,114 +70,56 @@ const heroChips = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-6 sm:pt-10">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-44 left-1/2 h-[38rem] w-[64rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(212,175,55,0.16),transparent)]" />
-        <div className="absolute bottom-0 right-0 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(closest-side,rgba(16,185,129,0.2),transparent)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(0,0,0,0.25)_100%)]" />
+    <section id="top" className="relative flex min-h-[100svh] w-full flex-col items-center justify-end overflow-hidden pt-20">
+      <div aria-hidden className="absolute inset-0 z-0">
+        <img
+          src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_26_17.png"
+          alt="Novo Protagon Cuiabá — Construa sua vida épica"
+          className="h-full w-full object-cover object-[center_20%]"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_20%,rgba(6,78,59,0.3)_75%,var(--color-background)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
       </div>
 
-      <Container className="relative grid items-center gap-14 py-10 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20">
-        <div className="max-w-xl">
-          <p className="animate-fade-up text-[11px] font-extrabold uppercase tracking-[0.5em] text-muted-foreground">
-            Evento presencial · 3 dias de imersão
-          </p>
+      <Container className="relative z-10 flex w-full flex-col items-center px-4 pb-12 text-center sm:pb-20">
+        <h1 className="sr-only">
+          Novo Protagon Cuiabá — Construa sua vida épica
+        </h1>
 
-          <h1 className="animate-fade-up mt-5 font-display text-[3.2rem] uppercase leading-[0.92] tracking-[0.02em] text-white sm:text-7xl lg:text-[5.25rem]" style={{ animationDelay: "80ms" }}>
-            Novo
-            <br />
-            <span className="text-gold-gradient">Protagon</span>
-            <br />
-            Cuiabá
-          </h1>
+        <p className="animate-fade-up text-[11px] font-extrabold uppercase tracking-[0.5em] text-gold-gradient drop-shadow-md sm:text-xs">
+          Evento presencial · 3 dias de imersão
+        </p>
 
-          <p
-            className="animate-fade-up mt-5 text-sm font-bold uppercase tracking-[0.4em] text-primary sm:text-lg"
-            style={{ animationDelay: "160ms" }}
-          >
-            Construa sua vida épica
-          </p>
-
-          <p
-            className="animate-fade-up mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8"
-            style={{ animationDelay: "220ms" }}
-          >
-            Uma imersão presencial de três dias para você destravar seu potencial,
-            desenvolver sua mentalidade e escrever o próximo capítulo da sua história.
-          </p>
-
-          <ul className="animate-fade-up mt-8 grid max-w-xl grid-cols-1 gap-2.5 sm:grid-cols-2" style={{ animationDelay: "280ms" }}>
-            {heroChips.map((ch) => (
-              <li
-                key={ch.label}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-sm transition-colors duration-300 hover:border-primary/30 hover:bg-white/[0.05]"
-              >
-                <ch.icon className="h-4 w-4 shrink-0 text-primary" />
-                <span className="text-[13px] font-semibold tracking-wide text-foreground/90">
-                  {ch.label}
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="animate-fade-up mt-9 flex flex-col gap-3 sm:flex-row sm:items-center" style={{ animationDelay: "340ms" }}>
-            <Button
-              asChild
-              size="lg"
-              className="h-12 rounded-xl border border-primary/60 bg-primary px-8 text-[13px] font-extrabold uppercase tracking-[0.16em] text-primary-foreground shadow-[0_0_36px_-8px_rgba(212,175,55,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/95"
+        <ul className="animate-fade-up mt-8 flex flex-wrap justify-center gap-3 sm:gap-5" style={{ animationDelay: "100ms" }}>
+          {heroChips.map((ch) => (
+            <li
+              key={ch.label}
+              className="flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-5 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-primary/50 hover:bg-black/60"
             >
-              <a href="#tipos-de-acesso">Garantir acesso</a>
-            </Button>
-            <a
-              href="#vsl"
-              className="group inline-flex items-center justify-center gap-2 px-2 py-3 text-[12px] font-extrabold uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-primary sm:px-4"
-            >
-              Ver vídeo
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </div>
-        </div>
+              <ch.icon className="h-4 w-4 shrink-0 text-primary" />
+              <span className="text-xs font-semibold tracking-wide text-foreground/90 sm:text-sm">
+                {ch.label}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-        <div className="animate-fade-up relative mx-auto w-full max-w-md lg:max-w-none" style={{ animationDelay: "200ms" }}>
-          <div
-            aria-hidden
-            className="absolute -inset-4 rounded-[2.25rem] bg-gradient-to-tr from-emerald-950/90 via-transparent to-primary/25 opacity-80 blur-2xl"
-          />
-
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/25 bg-card/50 p-2 shadow-2xl shadow-black/70 backdrop-blur-sm">
-            <div className="relative overflow-hidden rounded-[1.25rem]">
-              <img
-                src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_56_34.png"
-                alt="Wendell Carvalho — Novo Protagon Cuiabá"
-                className="aspect-[4/5] w-full object-cover"
-                loading="eager"
-              />
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(6,78,59,0.45)_0%,rgba(6,78,59,0)_40%,rgba(212,175,55,0.22)_100%)]" />
-
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-6">
-                <div>
-                  <p className="text-[10px] font-extrabold uppercase tracking-[0.42em] text-muted-foreground">
-                    24 • 25 • 26 out 2025
-                  </p>
-                  <p className="mt-1 font-display text-2xl leading-none tracking-[0.12em] text-white sm:text-3xl">
-                    CUIABÁ <span className="text-primary">/</span> MT
-                  </p>
-                </div>
-                <span className="rounded-full border border-primary/40 bg-black/40 px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.24em] text-primary backdrop-blur">
-                  Imersão total
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            aria-hidden
-            className="animate-float absolute -right-3 top-6 hidden rounded-2xl border border-primary/30 bg-background/90 px-4 py-3 shadow-xl shadow-black/50 backdrop-blur sm:block lg:-right-6"
+        <div className="animate-fade-up mt-10 w-full max-w-sm sm:max-w-md" style={{ animationDelay: "200ms" }}>
+          <Button
+            asChild
+            size="lg"
+            className="h-14 w-full rounded-xl border border-primary/60 bg-primary px-8 text-[14px] font-extrabold uppercase tracking-[0.2em] text-primary-foreground shadow-[0_0_40px_-10px_rgba(212,175,55,0.7)] transition-all duration-300 hover:scale-[1.02] hover:bg-primary/95"
           >
-            <p className="font-display text-2xl leading-none text-gold-gradient">3 DIAS</p>
-            <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.28em] text-muted-foreground">De pura imersão</p>
-          </div>
+            <a href="#tipos-de-acesso">Garantir acesso agora</a>
+          </Button>
+          <a
+            href="#vsl"
+            className="group mt-6 inline-flex items-center justify-center gap-2 text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/80 transition-colors hover:text-primary"
+          >
+            <Play className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+            Assistir ao vídeo
+          </a>
         </div>
       </Container>
     </section>
