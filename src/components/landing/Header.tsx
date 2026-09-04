@@ -12,12 +12,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-4 sm:h-20">
+        <div className="flex h-20 items-center justify-between gap-4 sm:h-24">
           <a href="#top" className="relative z-10 min-w-0 leading-tight">
             <img
               src="/uploads/ChatGPT_Image_4_de_set._de_2026_12_56_34.png"
               alt="Novo Protagon Cuiabá"
-              className="h-12 w-auto object-contain sm:h-14"
+              className="h-16 w-auto object-contain sm:h-20"
             />
           </a>
 
