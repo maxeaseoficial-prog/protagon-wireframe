@@ -160,24 +160,21 @@ html {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: var(--landing-ink);
+  background-color: var(--landing-ink);
+  background-image: url("/uploads/cuiaba-atmosphere.jpg");
+  background-image: image-set(
+    url("/uploads/cuiaba-atmosphere.avif") type("image/avif"),
+    url("/uploads/cuiaba-atmosphere.jpg") type("image/jpeg")
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: clip;
 }
 .hero-scenery {
   position: absolute;
   inset: 0;
-  z-index: -5;
-}
-.hero-scenery picture {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.hero-scenery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  z-index: 1;
 }
 .hero-scenery::after {
   content: "";
@@ -194,7 +191,7 @@ html {
 .hero-light {
   position: absolute;
   inset: 0;
-  z-index: -4;
+  z-index: 2;
   background: radial-gradient(ellipse at 50% 35%, rgb(8 120 63 / 32%), transparent 49%);
   animation: stage-light 14s ease-in-out infinite alternate;
 }
@@ -205,7 +202,7 @@ html {
   width: min(40vw, 660px);
   height: auto;
   opacity: 0.065;
-  z-index: -3;
+  z-index: 3;
 }
 .hero-lion img {
   display: block;
@@ -218,7 +215,7 @@ html {
   left: 50%;
   width: clamp(400px, 60svh, 700px);
   transform: translateX(-50%);
-  z-index: -2;
+  z-index: 4;
   mask-image: linear-gradient(to bottom, #000 61%, rgb(0 0 0 / 92%) 71%, transparent 100%);
 }
 .hero-person img {
@@ -229,7 +226,7 @@ html {
 }
 .hero-editorial {
   position: absolute;
-  z-index: -1;
+  z-index: 6;
   top: 10%;
   width: 205px;
   font-size: 10px;
@@ -260,6 +257,7 @@ html {
 }
 .hero-content {
   position: relative;
+  z-index: 7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1147,8 +1145,8 @@ html {
     font-size: 14px;
     letter-spacing: 0.22em;
   }
-  .hero-scenery img {
-    object-position: 68% center;
+  .cinematic-hero {
+    background-position: 68% center;
   }
   .hero-lion {
     width: 70vw;
@@ -1207,13 +1205,10 @@ html {
   }
   .cinematic-hero {
     min-height: max(710px, calc(100svh - var(--header-height)));
+    background-position: 75% top;
   }
   .hero-scenery {
     inset: 0;
-  }
-  .hero-scenery img {
-    object-position: 75% top;
-    opacity: 0.72;
   }
   .hero-scenery::after {
     background: linear-gradient(180deg, transparent 32%, rgb(2 11 7 / 15%) 50%, #020b07 96%);
@@ -1551,8 +1546,6 @@ html {
 
 .cinematic-hero {
   --hero-enter-y: 14px;
-  --hero-scenery-opacity: 1;
-  --hero-scenery-start-opacity: 0.8;
   --hero-lion-opacity: 0.065;
   --hero-lion-start-opacity: 0.03;
   --hero-scene-x: 0px;
@@ -1570,7 +1563,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 5;
   pointer-events: none;
   opacity: 0;
   background: radial-gradient(
@@ -1585,9 +1578,6 @@ html {
 }
 .hero-scenery {
   transform: translate3d(var(--hero-scene-x), var(--hero-scene-y), 0) scale(1.012);
-}
-.hero-scenery img {
-  animation: hero-atmosphere-enter 650ms var(--landing-ease) backwards;
 }
 .hero-light {
   transform: translate3d(var(--hero-light-x), var(--hero-light-y), 0) scale(1.015);
@@ -1674,18 +1664,6 @@ html {
   from {
     opacity: 0;
     transform: translateY(-8px);
-  }
-}
-@keyframes hero-atmosphere-enter {
-  from {
-    opacity: var(--hero-scenery-start-opacity);
-    transform: scale(1.015);
-    filter: saturate(0.94);
-  }
-  to {
-    opacity: var(--hero-scenery-opacity);
-    transform: scale(1);
-    filter: saturate(1);
   }
 }
 @keyframes hero-light-enter {
@@ -1813,8 +1791,6 @@ html {
 @media (max-width: 600px) {
   .cinematic-hero {
     --hero-enter-y: 10px;
-    --hero-scenery-opacity: 0.72;
-    --hero-scenery-start-opacity: 0.58;
     --hero-lion-opacity: 0.045;
     --hero-lion-start-opacity: 0.02;
   }
@@ -1857,7 +1833,6 @@ html {
     scroll-behavior: auto;
   }
   .site-header,
-  .hero-scenery img,
   .hero-light,
   .hero-lion,
   .hero-person img,

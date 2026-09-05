@@ -15,20 +15,7 @@ export function Hero() {
 
   return (
     <section ref={heroRef} id="top" className="cinematic-hero" aria-labelledby="hero-title">
-      <div className="hero-scenery" aria-hidden="true">
-        <picture>
-          <source srcSet="/uploads/cuiaba-atmosphere.avif" type="image/avif" />
-          <img
-            src="/uploads/cuiaba-atmosphere.jpg"
-            alt=""
-            width="1672"
-            height="941"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
+      <div className="hero-scenery" aria-hidden="true" />
       <div className="hero-light" aria-hidden="true" />
       <picture className="hero-lion" aria-hidden="true">
         <source srcSet="/uploads/protagon-lion.avif" type="image/avif" />
