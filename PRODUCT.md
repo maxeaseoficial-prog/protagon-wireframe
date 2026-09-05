@@ -20,7 +20,7 @@ Marca oficial Novo Protagon Cuiabá e retrato fornecido de Wendell Carvalho. A r
 
 ## Evidence on Hand
 
-Assets originais em `public/uploads/`; referências visuais e briefing anexados pelo usuário. O usuário forneceu a biografia e as métricas de Wendell, a data de 04 a 06 de setembro, o Centro de Eventos Pantanal com endereço, os horários de credenciamento, o benefício Pague 1, Leve 2, o kit do participante e as restrições de participação. O ano, os links de checkout, as formas de pagamento e parte do FAQ continuam sem confirmação. Não há checkout funcional, formulário ou testes automatizados configurados no repositório inicial.
+Assets originais em `public/uploads/`; referências visuais e briefing anexados pelo usuário. O usuário forneceu a biografia e as métricas de Wendell, a data de 04 a 06 de setembro, o Centro de Eventos Pantanal com endereço, os horários de credenciamento, o benefício Pague 1, Leve 2, o kit do participante e as restrições de participação. Também forneceu imagens, preços, benefícios e links externos da Hotmart para os acessos Executivo, VIP e Diamond. O ano do evento e parte do FAQ continuam sem confirmação. Não há formulário nem checkout interno; a compra é encaminhada para a Hotmart.
 
 ## Accessibility & Inclusion
 

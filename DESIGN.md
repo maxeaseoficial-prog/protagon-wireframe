@@ -44,25 +44,20 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.primary-foreground}"
     rounded: "5px"
-    height: "50px"
+    minHeight: "52px"
   button-access-standard:
     backgroundColor: "rgb(255 255 255 / 4%)"
     textColor: "#fff"
     rounded: "5px"
-    height: "50px"
+    minHeight: "52px"
   access-card:
-    backgroundColor: "rgb(255 255 255 / 2.5%)"
-    rounded: "6px"
-    padding: "44px 30px 30px"
+    backgroundColor: "linear-gradient(180deg, rgb(11 31 20 / 95%), rgb(4 17 10 / 98%))"
+    rounded: "8px"
+    padding: "0"
   access-card-featured:
-    backgroundColor: "#102418"
-    rounded: "6px"
-    padding: "44px 30px 30px"
-  access-badge:
-    backgroundColor: "{colors.landing-gold}"
-    textColor: "#102015"
-    rounded: "2px"
-    padding: "6px 12px"
+    backgroundColor: "linear-gradient(180deg, rgb(16 46 29 / 98%), rgb(5 24 14 / 98%))"
+    rounded: "8px"
+    padding: "0"
 ---
 
 # Design System: Novo Protagon Cuiabá
@@ -89,7 +84,7 @@ A paleta combina verdes escuros estruturais, texto claro e dourados de navegaç�
 
 ### Primary
 
-- **Dourado da landing (`landing-gold`)**: detalhes do hero, chamada do cabeçalho, selo de acesso e contornos de foco.
+- **Dourado da landing (`landing-gold`)**: detalhes do hero, chamada do cabeçalho, preços, ícones de benefícios e contornos de foco.
 - **Dourado do tema (`primary`)**: destaques nos títulos, ícones, rótulos e botão do acesso em destaque. A classe histórica de “gradiente dourado” hoje aplica essa cor sólida.
 - **Tinta da ação (`primary-foreground`)**: texto sobre botões dourados do componente de interface existente.
 - **Anel dourado (`ring`)**: anel de foco herdado do componente Button, acompanhado do contorno da landing.
@@ -117,7 +112,7 @@ O botão cinematográfico tem seu próprio gradiente linear metálico e texto es
 ### Hierarchy
 
 - **Headline**: títulos `h2`, em caixa alta e com quebra balanceada. O frontmatter registra a regra geral; há tamanhos próprios para local, encerramento, jornada e mobile.
-- **Title**: títulos dos cartões de acesso. No mobile até 600 pixels passam a 29 pixels.
+- **Title**: títulos dos cartões de acesso usam Bebas Neue entre 2,2 e 3 rem; no mobile ficam em 2,35 rem.
 - **Body**: parágrafos principais usam 14 pixels e entrelinha de 28 pixels; a partir de `sm`, os textos longos usam 16 pixels e entrelinha de 32 pixels quando essa variante está presente. Até 600 pixels, parágrafos com a classe de corpo pequeno recebem 15 pixels e entrelinha 1,85. Não há medida universal em caracteres.
 - **Label**: a configuração do frontmatter é a sobrancelha de seção com traço lateral; outras sobrancelhas centralizadas mantêm peso 800. A largura de letras anteriormente mais aberta é reduzida a 0,23em pelo CSS da landing.
 - **Navigation**: links do cabeçalho usam 10 pixels, peso 700 e espaçamento de 0,12em; ficam com 9 pixels até 1100 pixels de viewport.
@@ -140,6 +135,8 @@ A marca tem largura `min(740px, 60vw, 88svh)` no hero, 130 pixels no cabeçalho 
 
 Os arquivos oficiais permanecem como fallback em PNG/JPEG. A primeira dobra serve versões AVIF equivalentes: `public/uploads/hero-wendell.avif`, `public/uploads/protagon-brand.avif`, `public/uploads/protagon-lion.avif` e `public/uploads/cuiaba-atmosphere.avif`. Juntas, elas somam aproximadamente 330 KiB, ante cerca de 5,6 MiB dos quatro arquivos originais. O retrato e o cenário são pré-carregados; os demais recebem prioridade explícita. O cenário é decorativo; retrato, marca e arte do evento têm textos alternativos.
 
+As três artes de acesso preservam transparência e proporção 5:3. Cada uma tem versão AVIF e fallback PNG, dimensões explícitas, `loading="lazy"` e `decoding="async"`. A imagem usa `object-fit: contain`, sem ampliação ou recorte, sobre um halo verde discreto. As informações visuais também aparecem em texto HTML no card, por isso as artes são decorativas para leitores de tela.
+
 ### Responsive behavior
 
 | Condição implementada             | Comportamento                                                                                                                                                                                                                                                                                                               |
@@ -150,13 +147,15 @@ Os arquivos oficiais permanecem como fallback em PNG/JPEG. A primeira dobra serv
 | `max-width: 600px`                | Hero com mínimo de `max(710px, calc(100svh - var(--header-height)))`; retrato a 12 pixels do topo e com largura `min(104vw, 465px)`; marca em 100% da área disponível, limitada a 430 pixels; fatos do hero permanecem em três colunas com ícone acima; data e vídeo se empilham.                                           |
 | `max-width: 600px`, demais seções | Padding geral de 70 × 24 pixels; apresentação do palestrante inverte a ordem visual para texto seguido de retrato; quatro estatísticas usam grade 2 × 2; público vira lista de linhas numeradas; painel do local ocupa a largura total e tem mínimo de 540 pixels; benefícios e logística do evento passam para uma coluna. |
 | Tailwind `sm`, `min-width: 40rem` | Ativa as variantes existentes de 640 pixels, incluindo grades de duas colunas, corpo ampliado e alinhamento horizontal de algumas ações.                                                                                                                                                                                    |
-| Tailwind `lg`, `min-width: 64rem` | Ativa as variantes existentes de 1024 pixels: evento em duas colunas, público em quatro, acessos em três e grades amplas do restante da página.                                                                                                                                                                             |
+| Tailwind `lg`, `min-width: 64rem` | Ativa as variantes existentes de 1024 pixels: evento em duas colunas, público em quatro e grades amplas do restante da página.                                                                                                                                                                                              |
+
+A grade de acessos usa uma coluna por padrão, duas a partir de 760 pixels e três a partir de 1200 pixels. Os cartões alinham pelo topo e preservam alturas naturais conforme a quantidade de benefícios e cursos.
 
 As regras máximas da landing e as variantes mínimas do Tailwind coexistem; 600, 640, 959 e 1024 pixels são limites diferentes. No mobile, o cenário do hero usa posição `75% top` e opacidade 0,72; a máscara escura do conteúdo passa a ser vertical. A imagem original continua proporcional.
 
 ## Elevation & Depth
 
-A profundidade vem sobretudo de cenário, máscaras, luz radial e pequenas diferenças tonais. Listas, estatísticas e conteúdo editorial ficam abertos, separados por linhas. Os cartões de acesso não recebem sombra; o destaque usa superfície verde e borda dourada. O selo de garantia mantém os círculos, mas seu fundo interno e a sombra herdada foram removidos pelo CSS final.
+A profundidade vem sobretudo de cenário, máscaras, luz radial e pequenas diferenças tonais. Listas, estatísticas e conteúdo editorial ficam abertos, separados por linhas. Os cartões de acesso usam superfícies verde quase pretas; o VIP recebe borda dourada e uma sombra ambiente discreta. O selo de garantia mantém os círculos, mas seu fundo interno e a sombra herdada foram removidos pelo CSS final.
 
 ### Shadow Vocabulary
 
@@ -176,7 +175,7 @@ Os tokens principais são `220ms` para feedback, `420ms` para transições, `680
 
 ## Shapes
 
-O sistema usa cantos pequenos: 6 pixels no botão cinematográfico, vídeo e cartões; 5 pixels nos botões com o atributo da landing, inclusive o botão final que também usa o estilo dourado; 3 pixels na arte do evento e 2 pixels no selo de destaque. O local e o painel final mantêm formas amplas sem aparência de cartão arredondado. A garantia e os pequenos contêineres de check mantêm círculos.
+O sistema usa cantos pequenos: 6 pixels no botão cinematográfico e no vídeo, 8 pixels nos cartões de acesso e 5 pixels nos botões com o atributo da landing, inclusive o botão final que também usa o estilo dourado. O local e o painel final mantêm formas amplas sem aparência de cartão arredondado. A garantia e os pequenos contêineres de check mantêm círculos.
 
 O recorte da marca é retangular e proporcional. As fotografias do palestrante usam máscaras graduais, sem recorte artificial do rosto. No retrato secundário, a transição ocorre entre 75% e 100% da imagem.
 
@@ -186,19 +185,15 @@ O recorte da marca é retangular e proporcional. As fotografias do palestrante u
 
 As ações têm texto forte, caixa alta e pouco arredondamento. O botão cinematográfico usa gradiente dourado, altura mínima de 60 pixels, padding de 18 × 32 pixels e ícone de seta; o hero limita a largura a 360 pixels, reduzida a 330 pixels até 600 pixels de viewport, onde a altura mínima é 57 pixels e o texto tem 13 pixels.
 
-Os botões secundários existentes são transparentes ou levemente brancos, com borda tênue; no hover recebem borda e texto dourados, com fundo dourado de baixa opacidade. O acesso em destaque usa o dourado do tema sólido. Os botões dos cartões têm altura de 50 pixels e nenhuma sombra. Os controles marcados da landing sobem 2 pixels no hover e retornam à origem com escala de 0,985 quando ativos, em 220–240 ms. Setas avançam 3 pixels no hover e no foco. O botão cinematográfico também aumenta o brilho para 1,08.
+Os botões secundários existentes são transparentes ou levemente brancos, com borda tênue; no hover recebem borda e texto dourados, com fundo dourado de baixa opacidade. O acesso VIP usa o dourado sólido. Os botões dos cartões têm altura mínima de 52 pixels, permitem quebra de texto e não usam sombra. Os controles marcados da landing sobem 2 pixels no hover e retornam à origem com escala de 0,985 quando ativos, em 220–240 ms. Setas avançam 3 pixels no hover e no foco. O botão cinematográfico também aumenta o brilho para 1,08.
 
 Todos os elementos focáveis da landing recebem contorno dourado de 2 pixels com afastamento de 5 pixels. O Button existente pode manter seu anel semântico adicional.
 
 ### Cards / Containers
 
-Os três níveis de acesso usam cartões verticais, com lista flexível para alinhar os botões. A borda normal é a linha da landing; o acesso destacado tem borda dourada com 55% de opacidade. Em ponteiros precisos, o hover sobe 4 pixels, clareia fundo e borda e aplica uma sombra deslocada de baixa opacidade. Em touch, o deslocamento de hover é removido.
+Os três níveis de acesso usam cartões verticais de altura natural. A arte ocupa uma faixa 5:3 no topo; abaixo dela, rótulo, título, descrição, preço, benefícios, cursos presentes e ação formam uma única coluna. A borda normal é a linha da landing; o VIP tem borda dourada com 55% de opacidade. Em ponteiros precisos, o hover sobe 4 pixels, clareia fundo e borda e aplica uma sombra deslocada de baixa opacidade. Em touch, o deslocamento de hover é removido.
 
 Os blocos de público, experiência e estatísticas usam bordas e respiro, sem se tornarem cartões preenchidos. O vídeo usa uma moldura escura de proporção fixa; a incorporação YouTube existente permanece. A documentação visual não confirma a reprodução do vídeo.
-
-### Chips
-
-O único selo de destaque dos acessos é um rótulo informativo dourado, com texto escuro de 9 pixels, peso 800 e espaçamento de 0,14em. Fica no topo direito do cartão, a 22 pixels da borda, deslocado verticalmente em -50%. Não é um filtro ou controle selecionável.
 
 ### Navigation
 

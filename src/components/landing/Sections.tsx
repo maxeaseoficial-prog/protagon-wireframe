@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { BrandMark } from "./BrandMark";
 import {
+  ArrowUpRight,
   Backpack,
   BookOpen,
   CalendarDays,
@@ -421,30 +422,118 @@ export function LocationSection() {
   );
 }
 
-const tiers: {
+type GiftCourse = {
   name: string;
-  badge?: string;
+  description: string;
+};
+
+type AccessTier = {
+  id: string;
+  name: string;
+  description: string;
+  installments: string;
+  cashPrice: string;
+  image: {
+    avif: string;
+    fallback: string;
+  };
   featured?: boolean;
-  items: string[];
-}[] = [
+  benefits: string[];
+  gifts?: GiftCourse[];
+  checkoutUrl: string;
+};
+
+const giftCourses: GiftCourse[] = [
   {
-    name: "Acesso Essencial",
-    items: ["Acesso aos 3 dias de evento", "Ingresso presencial", "Conteúdo principal"],
+    name: "Ciclo da Maestria",
+    description: "Como dominar inteligência emocional, financeira e na carreira.",
   },
   {
-    name: "Acesso Executivo",
-    badge: "Mais escolhido",
-    featured: true,
-    items: [
-      "Tudo do Essencial",
-      "Assentos exclusivos",
-      "Materiais especiais",
-      "Condições diferenciadas",
+    name: "Finanças para Casais",
+    description: "Tudo que você precisa saber para organizar as finanças com seu(ua) parceiro(a).",
+  },
+  {
+    name: "Instagram Milionário",
+    description: "Estratégias práticas para transformar o seu Instagram em uma máquina de vendas.",
+  },
+  {
+    name: "7 Pilares do Relacionamento Épico",
+    description: "Construa relacionamentos sólidos e duradouros.",
+  },
+  {
+    name: "Tráfego Pago",
+    description:
+      "Passo a passo de como usar anúncios online para atrair clientes de forma constante e escalável.",
+  },
+];
+
+const tiers: AccessTier[] = [
+  {
+    id: "acesso-executivo",
+    name: "Executivo",
+    description:
+      "A porta de entrada para a experiência Protagon. Acesso completo aos 3 dias de imersão com todo o conteúdo e material.",
+    installments: "12x R$ 147",
+    cashPrice: "R$ 1.427 à vista",
+    image: {
+      avif: "/uploads/access-executivo.avif",
+      fallback: "/uploads/access-executivo.png",
+    },
+    benefits: [
+      "Acesso aos 3 dias de imersão",
+      "Material completo",
+      "1 acompanhante gratuito na mesma categoria",
     ],
+    checkoutUrl:
+      "https://go.hotmart.com/K105280346S?ap=84aa&sck=cd_79c82cf0e525442c99b6a99880add0f2&xcod=cd_79c82cf0e525442c99b6a99880add0f2",
   },
   {
-    name: "Acesso Diamond",
-    items: ["Tudo do Executivo", "Experiência premium", "Encontro exclusivo", "Kit especial"],
+    id: "acesso-vip",
+    name: "VIP",
+    description:
+      "Posicionamento privilegiado na plenária e acesso a cursos digitais exclusivos além da imersão.",
+    installments: "12x R$ 337",
+    cashPrice: "R$ 3.297 à vista",
+    image: {
+      avif: "/uploads/access-vip.avif",
+      fallback: "/uploads/access-vip.png",
+    },
+    featured: true,
+    benefits: [
+      "Acesso aos 3 dias de imersão",
+      "Assentos mais à frente na plenária",
+      "Material completo",
+      "1 acompanhante gratuito na mesma categoria",
+    ],
+    gifts: giftCourses,
+    checkoutUrl:
+      "https://go.hotmart.com/K105280346S?ap=1eb4&sck=cd_79c82cf0e525442c99b6a99880add0f2&xcod=cd_79c82cf0e525442c99b6a99880add0f2",
+  },
+  {
+    id: "acesso-diamond",
+    name: "Diamond",
+    description:
+      "A experiência mais completa do Protagon — com mentoria exclusiva em grupo com Wendell e Karina, lounge privativo e acesso prioritário.",
+    installments: "12x R$ 547",
+    cashPrice: "R$ 5.497 à vista",
+    image: {
+      avif: "/uploads/access-diamond.avif",
+      fallback: "/uploads/access-diamond.png",
+    },
+    benefits: [
+      "Os melhores assentos — primeiras fileiras reservadas",
+      "Mentoria exclusiva em grupo com Wendell e Karina Carvalho",
+      "Coquetel durante a mentoria exclusiva (véspera do evento)",
+      "Acesso prioritário ao evento",
+      "Lounge privativo com petit fours e café",
+      "Espaço reservado para networking de alto nível",
+      "Acesso aos 3 dias + mentoria na véspera",
+      "Material completo",
+      "1 acompanhante gratuito na mesma categoria",
+    ],
+    gifts: giftCourses,
+    checkoutUrl:
+      "https://go.hotmart.com/K105280346S?ap=d755&sck=cd_79c82cf0e525442c99b6a99880add0f2&xcod=cd_79c82cf0e525442c99b6a99880add0f2",
   },
 ];
 
@@ -466,48 +555,85 @@ export function AccessTypes() {
         </h2>
       </Container>
 
-      <Container
-        data-motion-stagger
-        className="mt-12 grid grid-cols-1 items-stretch gap-5 lg:grid-cols-3"
-      >
+      <Container data-motion-stagger className="access-grid mt-12">
         {tiers.map((t) => (
-          <div
+          <article
             data-motion-item
+            id={t.id}
             key={t.name}
             className={`access-card ${
               t.featured ? "access-card-featured" : "access-card-standard"
             }`}
           >
-            {t.badge && <span className="access-badge">{t.badge}</span>}
+            <div className="access-media">
+              <picture>
+                <source srcSet={t.image.avif} type="image/avif" />
+                <img
+                  src={t.image.fallback}
+                  alt=""
+                  width="500"
+                  height="300"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
 
-            <h3 className="flex items-center gap-2 font-display text-xl uppercase tracking-[0.14em] text-white sm:text-2xl">
-              {t.name.includes("Diamond") && <Crown className="h-5 w-5 text-primary" />}
-              {t.name}
-            </h3>
+            <div className="access-card-body">
+              <p className="access-label">Acesso</p>
+              <h3>
+                {t.name === "Diamond" && <Crown aria-hidden="true" />}
+                {t.name}
+              </h3>
+              <p className="access-description">{t.description}</p>
 
-            <ul className="mt-7 flex-1 space-y-3.5">
-              {t.items.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
-                    <Check className="h-3 w-3 text-primary" />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+              <div className="access-price">
+                <p>{t.installments}</p>
+                <span>no cartão de crédito</span>
+                <div className="access-price-divider" aria-hidden="true">
+                  <span>ou</span>
+                </div>
+                <strong>{t.cashPrice}</strong>
+              </div>
 
-            <Button
-              data-landing-button
-              asChild
-              className={`mt-8 h-11 w-full rounded-xl px-6 text-[11px] font-extrabold uppercase tracking-[0.18em] ${
-                t.featured
-                  ? "border border-primary/60 bg-primary text-primary-foreground shadow-[0_0_28px_-8px_rgba(212,175,55,0.7)] hover:bg-primary/95"
-                  : "border border-white/15 bg-white/[0.04] text-white hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
-              }`}
-            >
-              <a href="#">Garantir acesso</a>
-            </Button>
-          </div>
+              <ul className="access-benefits">
+                {t.benefits.map((item) => (
+                  <li key={item}>
+                    <span aria-hidden="true">
+                      <Check />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              {t.gifts && (
+                <div className="access-gifts">
+                  <h4>Presente especial — cursos</h4>
+                  <ul>
+                    {t.gifts.map((course) => (
+                      <li key={course.name}>
+                        <Check aria-hidden="true" />
+                        <p>
+                          <strong>{course.name}</strong> — {course.description}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <Button
+                data-landing-button
+                asChild
+                className={`access-checkout ${t.featured ? "access-checkout-featured" : ""}`}
+              >
+                <a href={t.checkoutUrl} target="_blank" rel="noopener noreferrer">
+                  Garantir acesso {t.name} <ArrowUpRight aria-hidden="true" />
+                </a>
+              </Button>
+            </div>
+          </article>
         ))}
       </Container>
     </Section>
@@ -566,12 +692,18 @@ export function GuaranteeSection() {
 
 const faq: [string, string][] = [
   ["O que é exatamente o Protagon?", "Resposta a ser definida."],
-  ["Qual a diferença entre os tipos de acesso?", "Resposta a ser definida."],
+  [
+    "Qual a diferença entre os tipos de acesso?",
+    "O Executivo inclui os três dias de imersão e o material completo. O VIP acrescenta assentos mais à frente e cinco cursos digitais. O Diamond reúne a experiência mais completa, com primeiras fileiras, mentoria em grupo com Wendell e Karina, coquetel, acesso prioritário e lounge privativo. Todos incluem um acompanhante gratuito na mesma categoria.",
+  ],
   [
     'O que significa "Pague 1, Leve 2"?',
     "Cada acesso dá direito a um acompanhante grátis na mesma categoria. Você pode levar quem quiser.",
   ],
-  ["Quais são as formas de pagamento?", "Resposta a ser definida."],
+  [
+    "Quais são as formas de pagamento?",
+    "Os três tipos de acesso oferecem parcelamento em até 12 vezes no cartão de crédito e uma condição de pagamento à vista. Os valores de cada categoria estão indicados nos cartões acima.",
+  ],
   ["Como funciona a garantia?", "Resposta a ser definida."],
   [
     "Existe alguma restrição de participação?",
@@ -777,17 +909,22 @@ export function Footer() {
             </p>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="transition-colors hover:text-primary">
+                <a href="#top" className="transition-colors hover:text-primary">
                   Página Oficial
                 </a>
               </li>
               <li>
-                <a href="#" className="transition-colors hover:text-primary">
+                <a href="#acesso-executivo" className="transition-colors hover:text-primary">
                   Acesso Executivo
                 </a>
               </li>
               <li>
-                <a href="#" className="transition-colors hover:text-primary">
+                <a href="#acesso-vip" className="transition-colors hover:text-primary">
+                  Acesso VIP
+                </a>
+              </li>
+              <li>
+                <a href="#acesso-diamond" className="transition-colors hover:text-primary">
                   Acesso Diamond
                 </a>
               </li>

@@ -719,14 +719,22 @@ html {
 #tipos-de-acesso {
   padding-top: 24px;
 }
+.access-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  max-width: 780px;
+}
 .access-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 44px 30px 30px;
+  min-width: 0;
+  overflow: hidden;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+  padding: 0;
   border: 1px solid var(--landing-line);
-  border-radius: 6px;
-  background: rgb(255 255 255 / 2.5%);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgb(11 31 20 / 95%), rgb(4 17 10 / 98%));
   transition:
     transform 240ms var(--landing-ease),
     border-color 240ms,
@@ -739,33 +747,233 @@ html {
 }
 .access-card-featured {
   border-color: rgb(232 192 76 / 55%);
-  background: #102418;
+  background: linear-gradient(180deg, rgb(16 46 29 / 98%), rgb(5 24 14 / 98%));
+  box-shadow: 0 24px 70px rgb(0 0 0 / 22%);
+}
+.access-media {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 5 / 3;
+  padding: 18px 16px 8px;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(232 192 76 / 14%);
+  background:
+    radial-gradient(circle at 50% 54%, rgb(22 101 52 / 28%), transparent 61%),
+    linear-gradient(180deg, rgb(255 255 255 / 1.5%), transparent);
+}
+.access-media::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: -1;
+  height: 36%;
+  background: linear-gradient(180deg, transparent, rgb(2 11 7 / 45%));
+}
+.access-media picture,
+.access-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.access-media img {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+}
+.access-card-body {
+  padding: 32px 28px 30px;
+}
+.access-label {
+  color: var(--landing-gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
 }
 .access-card h3 {
-  font-size: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.1vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.access-card h3 svg {
+  width: 25px;
+  height: 25px;
+  color: var(--landing-gold);
+  stroke-width: 1.6;
+}
+.access-description {
+  min-height: 6.9em;
+  margin-top: 20px;
+  color: var(--landing-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.access-price {
+  margin-top: 28px;
+  padding: 24px 0;
+  border-top: 1px solid rgb(232 192 76 / 19%);
+  border-bottom: 1px solid rgb(232 192 76 / 19%);
+  font-variant-numeric: tabular-nums;
+}
+.access-price > p {
+  color: var(--landing-gold);
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 1;
   letter-spacing: 0.03em;
 }
-.access-card li {
+.access-price > span {
+  display: block;
+  margin-top: 7px;
+  color: var(--landing-muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.access-price-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 17px 0 14px;
+  color: rgb(255 255 255 / 42%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.access-price-divider::before,
+.access-price-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgb(255 255 255 / 9%);
+}
+.access-price > strong {
+  display: block;
+  color: #f1eee4;
+  font-size: 17px;
+  font-weight: 700;
+}
+.access-benefits {
+  display: grid;
+  gap: 13px;
+  margin-top: 26px;
+}
+.access-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: #dbe3dc;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.access-benefits li > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1px solid rgb(232 192 76 / 38%);
+  border-radius: 50%;
+  color: var(--landing-gold);
+}
+.access-benefits svg {
+  width: 11px;
+  height: 11px;
+  stroke-width: 2.4;
+}
+.access-gifts {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid rgb(232 192 76 / 24%);
+}
+.access-gifts h4 {
+  color: var(--landing-gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+.access-gifts ul {
+  display: grid;
+  gap: 16px;
+  margin-top: 19px;
+}
+.access-gifts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--landing-muted);
+  font-size: 11px;
   line-height: 1.7;
 }
-.access-badge {
-  position: absolute;
-  top: 0;
-  right: 22px;
-  transform: translateY(-50%);
+.access-gifts li > svg {
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  color: var(--landing-gold);
+  stroke-width: 2.3;
+}
+.access-gifts strong {
+  color: #f3f1e9;
+  font-weight: 700;
+}
+.access-card .access-checkout {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 52px;
+  margin-top: 36px;
+  padding: 14px 18px;
+  border: 1px solid rgb(232 192 76 / 48%);
+  border-radius: 5px;
+  background: rgb(255 255 255 / 4%);
+  color: #fff;
+  box-shadow: none;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.access-card .access-checkout:hover {
+  border-color: var(--landing-gold);
+  background: rgb(232 192 76 / 9%);
+  color: #fff;
+}
+.access-card .access-checkout-featured {
+  border-color: var(--landing-gold);
   background: var(--landing-gold);
   color: #102015;
-  padding: 6px 12px;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  border-radius: 2px;
 }
-.access-card [data-landing-button] {
-  margin-top: 36px;
-  height: 50px;
-  box-shadow: none;
+.access-card .access-checkout-featured:hover {
+  background: #f4ce5c;
+  color: #102015;
+}
+.access-checkout svg {
+  width: 15px;
+  height: 15px;
+}
+@media (min-width: 760px) {
+  .access-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1080px;
+  }
+}
+@media (min-width: 1200px) {
+  .access-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1280px;
+  }
 }
 #garantia {
   background: #071a11;
@@ -973,7 +1181,7 @@ html {
     margin: 0;
   }
   .access-card {
-    padding-top: 36px;
+    padding: 0;
   }
 }
 @media (max-width: 600px) {
@@ -1199,10 +1407,23 @@ html {
     padding-top: 0;
   }
   .access-card h3 {
-    font-size: 29px;
+    font-size: 2.35rem;
   }
   .access-card {
-    padding: 34px 24px 26px;
+    padding: 0;
+  }
+  .access-card-body {
+    padding: 28px 24px 26px;
+  }
+  .access-media {
+    padding: 14px 10px 4px;
+  }
+  .access-description {
+    min-height: 0;
+    font-size: 13px;
+  }
+  .access-price > p {
+    font-size: 34px;
   }
   #garantia .section-container {
     gap: 38px;
